@@ -1,0 +1,453 @@
+<?xml version="1.0"?>
+<!--Phoronix Test Suite v5.2.1 (Khanino)-->
+<?xml-stylesheet type="text/xsl" href="pts-results-viewer.xsl"?>
+<PhoronixTestSuite>
+  <Generated>
+    <Title>res1</Title>
+    <LastModified>2021-03-03 08:32:21</LastModified>
+    <TestClient>Phoronix Test Suite v5.2.1 (Khanino)</TestClient>
+    <Description>Intel Core i3-5015U testing with a FF40 06A0 v2.0 and Intel HD 5500 (BDW GT2) on Ubuntu 18.04 via the Phoronix Test Suite.</Description>
+    <PreSetEnvironmentVariables></PreSetEnvironmentVariables>
+  </Generated>
+  <System>
+    <Identifier>res1</Identifier>
+    <Hardware>Processor: Intel Core i3-5015U @ 2.00GHz (4 Cores), Motherboard: FF40 06A0 v2.0, Memory: 6144MB, Disk: 500GB HGST HTS545050A7, Graphics: Intel HD 5500 (BDW GT2), Network: Intel Wireless 3160</Hardware>
+    <Software>OS: Ubuntu 18.04, Kernel: 5.4.0-65-generic (x86_64), OpenGL: 4.6 Mesa 20.0.8, File-System: fuseblk, Screen Resolution: 1366x768</Software>
+    <User>user0</User>
+    <TimeStamp>2021-03-03 08:32:22</TimeStamp>
+    <TestClientVersion>5.2.1</TestClientVersion>
+    <Notes></Notes>
+    <JSON>{"compiler-configuration":"--build=x86_64-linux-gnu --disable-vtable-verify --disable-werror --enable-bootstrap --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-gnu-unique-object --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --enable-libmpx --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-multiarch --enable-multilib --enable-nls --enable-objc-gc=auto --enable-offload-targets=nvptx-none --enable-plugin --enable-shared --enable-threads=posix --host=x86_64-linux-gnu --program-prefix=x86_64-linux-gnu- --target=x86_64-linux-gnu --with-abi=m64 --with-arch-32=i686 --with-default-libstdcxx-abi=new --with-gcc-major-version-only --with-multilib-list=m32,m64,mx32 --with-target-system-zlib --with-tune=generic --without-cuda-driver -v","cpu-scaling-governor":"intel_pstate powersave"}</JSON>
+  </System>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLUniform</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLUniform</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>1.72</Value>
+        <RawString>1.808:1.767:1.619:1.685:1.702:1.723</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLNaive</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: TexturedQuadsProblem GLNaive</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>19.38</Value>
+        <RawString>19.622:19.821:18.694</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLNoTex</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: TexturedQuadsProblem GLNoTex</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>64.30</Value>
+        <RawString>63.912:66.805:60.854:64.545:68.73:60.952</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLDrawLoop</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLDrawLoop</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>2.66</Value>
+        <RawString>2.82:2.431:2.708:2.61:2.703:2.68</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLTexCoord</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLTexCoord</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>1.62</Value>
+        <RawString>1.454:1.621:1.703:1.672:1.701:1.564</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLBufferRange</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLBufferRange</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>2.29</Value>
+        <RawString>2.331:2.254:2.288</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLBufferSubData</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: DynamicStreaming GLBufferSubData</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>5.30</Value>
+        <RawString>5.272:5.342:5.274</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLMapPersistent</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: DynamicStreaming GLMapPersistent</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>5.85</Value>
+        <RawString>5.952:5.661:5.941</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLBufferSubData</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLBufferSubData</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>5.33</Value>
+        <RawString>5.363:5.405:5.208</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLDynamicBuffer</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLDynamicBuffer</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>0.55</Value>
+        <RawString>0.54:0.568:0.545</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLMapPersistent</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLMapPersistent</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>5.56</Value>
+        <RawString>5.63:5.425:5.632</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLNaiveUniform</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: TexturedQuadsProblem GLNaiveUniform</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>21.04</Value>
+        <RawString>21.086:19.937:21.706:21.692:20.772</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLNoTexUniform</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: TexturedQuadsProblem GLNoTexUniform</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>48.12</Value>
+        <RawString>45.715:48.495:49.077:49.195</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLTextureArray</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: TexturedQuadsProblem GLTextureArray</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>59.78</Value>
+        <RawString>59.559:59.519:60.268</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLMapUnsynchronized</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: DynamicStreaming GLMapUnsynchronized</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>5.23</Value>
+        <RawString>5.261:5.151:5.265</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLBufferStorage-SDP</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLBufferStorage-SDP</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>3.20</Value>
+        <RawString>3.195:3.208:3.201</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLMapUnsynchronized</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLMapUnsynchronized</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>5.12</Value>
+        <RawString>5.123:5.544:4.994:5.269:5.056:4.718</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLBufferStorage-NoSDP</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLBufferStorage-NoSDP</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>4.24</Value>
+        <RawString>4.253:4.225:4.252</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLMultiDrawBuffer-SDP</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLMultiDrawBuffer-SDP</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>3.19</Value>
+        <RawString>3.09:3.213:3.266</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 768 -s GLMultiDrawBuffer-NoSDP</Arguments>
+    <Description>Resolution: 1024 x 768 - Test: UntexturedObjects GLMultiDrawBuffer-NoSDP</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>4.25</Value>
+        <RawString>4.295:4.225:4.23</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/ramspeed-1.4.3</Identifier>
+    <Title>RAMspeed SMP</Title>
+    <AppVersion>3.5.0</AppVersion>
+    <Arguments>AVERAGE -b 3</Arguments>
+    <Description>Type: Average - Benchmark: Integer</Description>
+    <Scale>MB/s</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>9357.75</Value>
+        <RawString>9348.23:9375.87:9349.15</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CC","compiler":"gcc","compiler-options":"-O3 -march=native"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/ramspeed-1.4.3</Identifier>
+    <Title>RAMspeed SMP</Title>
+    <AppVersion>3.5.0</AppVersion>
+    <Arguments>AVERAGE -b 6</Arguments>
+    <Description>Type: Average - Benchmark: Floating Point</Description>
+    <Scale>MB/s</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>9346.48</Value>
+        <RawString>9330.46:9364.09:9344.88</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CC","compiler":"gcc","compiler-options":"-O3 -march=native"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/network-loopback-1.0.3</Identifier>
+    <Title>Loopback TCP Network Performance</Title>
+    <AppVersion></AppVersion>
+    <Arguments></Arguments>
+    <Description>Time To Transfer 10GB Via Loopback</Description>
+    <Scale>Seconds</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>18.45</Value>
+        <RawString>18.482062101364:18.401253938675:18.468635082245</RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/openssl-1.11.0</Identifier>
+    <Title>OpenSSL</Title>
+    <AppVersion>1.1.1</AppVersion>
+    <Arguments></Arguments>
+    <Description>RSA 4096-bit Performance</Description>
+    <Scale>Signs Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>res1</Identifier>
+        <Value>289.77</Value>
+        <RawString>291.5:290.4:287.4</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CC","compiler":"gcc","compiler-options":"-pthread -m64 -O3 -lssl -lcrypto -ldl"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+</PhoronixTestSuite>

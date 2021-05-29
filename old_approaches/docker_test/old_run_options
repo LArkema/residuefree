@@ -1,0 +1,15 @@
+	#--security-opt apparmor:unconfined \
+	#--security-opt seccomp:unconfined \
+	#--mount type=bind,source=/mnt/nrun,target=/run \
+	#--mount type=bind,source=/mnt/nsnap,target=/snap \
+	# -u user0 bash /home/user0/residuefree/docker_test/user_env.sh
+	#--privileged \
+	#--device=/dev/snd/ \
+	#--device=/dev/video0:/dev/video0 \
+	#--device=/dev/video1:/dev/video1 \
+	#--mount type=bind,source=/dev,target=/dev \
+	#--mount type=bind,source=/dev/video0,target=/dev/video0 \
+	#--mount type=bind,source=/dev/video1,target=/dev/video1 \
+	#--mount type=bind,source=/dev/snd/controlC0,target=/dev/snd/controlC0 \
+	#--mount type=bind,source=/dev/snd/controlC1,target=/dev/snd/controlC1 \
+	#residue_image /bin/bash

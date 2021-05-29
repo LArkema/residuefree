@@ -1,0 +1,453 @@
+<?xml version="1.0"?>
+<!--Phoronix Test Suite v5.2.1 (Khanino)-->
+<?xml-stylesheet type="text/xsl" href="pts-results-viewer.xsl"?>
+<PhoronixTestSuite>
+  <Generated>
+    <Title>baseline_test5</Title>
+    <LastModified>2020-09-24 11:29:17</LastModified>
+    <TestClient>Phoronix Test Suite v5.2.1 (Khanino)</TestClient>
+    <Description>Intel Core i3-5015U testing with a FF40 06A0 v2.0 and Intel HD 5500 on Ubuntu 18.04 via the Phoronix Test Suite.</Description>
+    <PreSetEnvironmentVariables></PreSetEnvironmentVariables>
+  </Generated>
+  <System>
+    <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+    <Hardware>Processor: Intel Core i3-5015U @ 2.00GHz (4 Cores), Motherboard: FF40 06A0 v2.0, Chipset: Intel Broadwell-U-OPI, Memory: 6144MB, Disk: 500GB HGST HTS545050A7, Graphics: Intel HD 5500, Audio: Intel Broadwell-U Audio, Network: Intel Wireless 3160</Hardware>
+    <Software>OS: Ubuntu 18.04, Kernel: 5.4.0-42-generic (x86_64), Desktop: GNOME Shell 3.28.4, OpenGL: 4.6 Mesa 20.0.8, File-System: ext4, Screen Resolution: 1366x768</Software>
+    <User>user0</User>
+    <TimeStamp>2020-09-24 11:29:17</TimeStamp>
+    <TestClientVersion>5.2.1</TestClientVersion>
+    <Notes></Notes>
+    <JSON>{"compiler-configuration":"--build=x86_64-linux-gnu --disable-vtable-verify --disable-werror --enable-bootstrap --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-gnu-unique-object --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --enable-libmpx --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-multiarch --enable-multilib --enable-nls --enable-objc-gc=auto --enable-offload-targets=nvptx-none --enable-plugin --enable-shared --enable-threads=posix --host=x86_64-linux-gnu --program-prefix=x86_64-linux-gnu- --target=x86_64-linux-gnu --with-abi=m64 --with-arch-32=i686 --with-default-libstdcxx-abi=new --with-gcc-major-version-only --with-multilib-list=m32,m64,mx32 --with-target-system-zlib --with-tune=generic --without-cuda-driver -v","cpu-scaling-governor":"intel_pstate powersave"}</JSON>
+  </System>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLUniform</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLUniform</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>1.89</Value>
+        <RawString>1.878:1.807:1.95:1.929</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLNaive</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: TexturedQuadsProblem GLNaive</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>21.01</Value>
+        <RawString>20.764:21.788:20.475</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLNoTex</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: TexturedQuadsProblem GLNoTex</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>72.61</Value>
+        <RawString>74.275:72.566:70.994</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLDrawLoop</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLDrawLoop</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>2.70</Value>
+        <RawString>2.838:2.471:2.87:2.701:2.697:2.597</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLTexCoord</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLTexCoord</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>1.68</Value>
+        <RawString>1.667:1.761:1.612:1.755:1.609:1.691</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLBufferRange</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLBufferRange</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>2.26</Value>
+        <RawString>2.437:2.181:2.343:2.038:2.218:2.348</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLBufferSubData</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: DynamicStreaming GLBufferSubData</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>5.40</Value>
+        <RawString>5.421:5.306:5.473</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLMapPersistent</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: DynamicStreaming GLMapPersistent</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>5.77</Value>
+        <RawString>5.797:5.64:5.858</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLBufferSubData</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLBufferSubData</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>5.43</Value>
+        <RawString>5.641:4.945:5.625:5.573:5.404:5.391</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLDynamicBuffer</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLDynamicBuffer</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>0.55</Value>
+        <RawString>0.547:0.551:0.541</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLMapPersistent</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLMapPersistent</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>5.72</Value>
+        <RawString>5.568:5.743:5.852</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLNaiveUniform</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: TexturedQuadsProblem GLNaiveUniform</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>21.12</Value>
+        <RawString>20.852:20.947:21.551</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLNoTexUniform</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: TexturedQuadsProblem GLNoTexUniform</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>49.89</Value>
+        <RawString>47.295:51.494:51.48:48.164:48.631:52.255</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLTextureArray</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: TexturedQuadsProblem GLTextureArray</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>65.47</Value>
+        <RawString>64.981:65.461:65.961</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLMapUnsynchronized</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: DynamicStreaming GLMapUnsynchronized</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>5.18</Value>
+        <RawString>5.155:5.189:5.194</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLBufferStorage-SDP</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLBufferStorage-SDP</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>3.17</Value>
+        <RawString>3.177:3.234:3.111</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLMapUnsynchronized</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLMapUnsynchronized</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>5.30</Value>
+        <RawString>5.195:5.455:5.254</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLBufferStorage-NoSDP</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLBufferStorage-NoSDP</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>4.29</Value>
+        <RawString>4.303:4.271:4.299</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLMultiDrawBuffer-SDP</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLMultiDrawBuffer-SDP</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>3.15</Value>
+        <RawString>3.176:3.14:3.122</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/apitest-1.1.0</Identifier>
+    <Title>APITest</Title>
+    <AppVersion>2014-07-26</AppVersion>
+    <Arguments>-r 1024 576 -s GLMultiDrawBuffer-NoSDP</Arguments>
+    <Description>Resolution: 1024 x 576 - Test: UntexturedObjects GLMultiDrawBuffer-NoSDP</Description>
+    <Scale>Frames Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>4.28</Value>
+        <RawString>4.256:4.296:4.274</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CXX","compiler":"g++","compiler-options":"-rdynamic -std=c++11 -O3"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/ramspeed-1.4.3</Identifier>
+    <Title>RAMspeed SMP</Title>
+    <AppVersion>3.5.0</AppVersion>
+    <Arguments>AVERAGE -b 3</Arguments>
+    <Description>Type: Average - Benchmark: Integer</Description>
+    <Scale>MB/s</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>8668.76</Value>
+        <RawString>8670.4:8666.4:8669.47</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CC","compiler":"gcc","compiler-options":"-O3 -march=native"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/ramspeed-1.4.3</Identifier>
+    <Title>RAMspeed SMP</Title>
+    <AppVersion>3.5.0</AppVersion>
+    <Arguments>AVERAGE -b 6</Arguments>
+    <Description>Type: Average - Benchmark: Floating Point</Description>
+    <Scale>MB/s</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>8647.40</Value>
+        <RawString>8662.45:8646.95:8632.79</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CC","compiler":"gcc","compiler-options":"-O3 -march=native"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/network-loopback-1.0.3</Identifier>
+    <Title>Loopback TCP Network Performance</Title>
+    <AppVersion></AppVersion>
+    <Arguments></Arguments>
+    <Description>Time To Transfer 10GB Via Loopback</Description>
+    <Scale>Seconds</Scale>
+    <Proportion>LIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel Wireless 3160</Identifier>
+        <Value>18.40</Value>
+        <RawString>18.372792959213:18.425901889801:18.400630950928</RawString>
+      </Entry>
+    </Data>
+  </Result>
+  <Result>
+    <Identifier>pts/openssl-1.11.0</Identifier>
+    <Title>OpenSSL</Title>
+    <AppVersion>1.1.1</AppVersion>
+    <Arguments></Arguments>
+    <Description>RSA 4096-bit Performance</Description>
+    <Scale>Signs Per Second</Scale>
+    <Proportion>HIB</Proportion>
+    <DisplayFormat>BAR_GRAPH</DisplayFormat>
+    <Data>
+      <Entry>
+        <Identifier>Intel HD 5500 - Intel Core i3-5015U</Identifier>
+        <Value>290.53</Value>
+        <RawString>290.6:292.2:288.8</RawString>
+        <JSON>{"compiler-options":{"compiler-type":"CC","compiler":"gcc","compiler-options":"-pthread -m64 -O3 -lssl -lcrypto -ldl"}}</JSON>
+      </Entry>
+    </Data>
+  </Result>
+</PhoronixTestSuite>

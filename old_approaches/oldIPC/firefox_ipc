@@ -1,0 +1,513 @@
+Script started on 2019-11-14 19:08:36-0500
+]0;blackbox@MyBox: ~[01;32mblackbox@MyBox[00m:[01;34m~[00m$ lscd ..[1Pexitbash residueFree.sh [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[7@sudo bash[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdf -T[Kvi removeUnion.sh [7@sudo bash[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[7Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdf -T[Ksudo bash residueFree.sh [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[7Pvi[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2@bash[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Kcd ..[3Pls[Kstrace -e trace=ipc firefox
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2660, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2662, si_uid=1000, si_status=0, si_utime=2, si_stime=1} ---
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2702, si_uid=1000, si_status=0, si_utime=0, si_stime=1} ---
+XPCOMGlueLoad error for file /usr/lib/firefox/libmozgtk.so:
+libharfbuzz.so.0: cannot close file descriptor: Too many open files
+Couldn't load XPCOM.
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (132): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2825, si_uid=1000, si_status=255, si_utime=0, si_stime=1} ---
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005C,name=PContent::Msg_RefreshScreens) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003E,name=PContent::Msg_SetXPCOMProcessAttributes) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35002F,name=PContent::Msg_UpdateSharedData) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350019,name=PContent::Msg_RegisterChrome) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35002E,name=PContent::Msg_RegisterStringBundles) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350038,name=PContent::Msg_AppInfo) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350039,name=PContent::Msg_RemoteType) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350017,name=PContent::Msg_PScriptCacheConstructor) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35000A,name=PContent::Msg_InitRendering) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35000F,name=PContent::Msg_SetProcessSandbox) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005B,name=PContent::Msg_SetPermissionsWithKey) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005B,name=PContent::Msg_SetPermissionsWithKey) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003A,name=PContent::Msg_InitServiceWorkers) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005B,name=PContent::Msg_SetPermissionsWithKey) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003B,name=PContent::Msg_InitBlobURLs) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003C,name=PContent::Msg_InitJSWindowActorInfos) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005F,name=PContent::Msg_SetPluginList) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350065,name=PContent::Msg_SetInputEventQueueEnabled) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350068,name=PContent::Msg_SuspendInputEventQueue) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350066,name=PContent::Msg_FlushInputEventQueue) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350067,name=PContent::Msg_ResumeInputEventQueue) Channel error: cannot send/recv
+
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (191): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (186): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (181): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350008,name=PContent::Msg_InitProcessHangMonitor) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350009,name=PContent::Msg_InitProfiler) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (186): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350055,name=PContent::Msg_GMPsChanged) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35006F,name=PContent::Msg_RegisterBrowsingContextGroup) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350002,name=PContent::Msg_ConstructBrowser) Channel error: cannot send/recv
+
+XPCOMGlueLoad error for file /usr/lib/firefox/libmozgtk.so:
+libthai.so.0: cannot close file descriptor: Too many open files
+Couldn't load XPCOM.
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (199): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003E,name=PContent::Msg_SetXPCOMProcessAttributes) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35002F,name=PContent::Msg_UpdateSharedData) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350019,name=PContent::Msg_RegisterChrome) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35002E,name=PContent::Msg_RegisterStringBundles) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350038,name=PContent::Msg_AppInfo) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350039,name=PContent::Msg_RemoteType) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350017,name=PContent::Msg_PScriptCacheConstructor) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35000A,name=PContent::Msg_InitRendering) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35000F,name=PContent::Msg_SetProcessSandbox) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005B,name=PContent::Msg_SetPermissionsWithKey) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005B,name=PContent::Msg_SetPermissionsWithKey) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003A,name=PContent::Msg_InitServiceWorkers) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005B,name=PContent::Msg_SetPermissionsWithKey) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003B,name=PContent::Msg_InitBlobURLs) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003C,name=PContent::Msg_InitJSWindowActorInfos) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005F,name=PContent::Msg_SetPluginList) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350065,name=PContent::Msg_SetInputEventQueueEnabled) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350068,name=PContent::Msg_SuspendInputEventQueue) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350066,name=PContent::Msg_FlushInputEventQueue) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350067,name=PContent::Msg_ResumeInputEventQueue) Channel error: cannot send/recv
+
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (209): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (207): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (204): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350008,name=PContent::Msg_InitProcessHangMonitor) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350009,name=PContent::Msg_InitProfiler) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (207): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350055,name=PContent::Msg_GMPsChanged) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35006F,name=PContent::Msg_RegisterBrowsingContextGroup) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350002,name=PContent::Msg_ConstructBrowser) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350054,name=PContent::Msg_BlobURLUnregistration) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350054,name=PContent::Msg_BlobURLUnregistration) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350054,name=PContent::Msg_BlobURLUnregistration) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350054,name=PContent::Msg_BlobURLUnregistration) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350054,name=PContent::Msg_BlobURLUnregistration) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350054,name=PContent::Msg_BlobURLUnregistration) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350054,name=PContent::Msg_BlobURLUnregistration) Channel error: cannot send/recv
+
+XPCOMGlueLoad error for file /usr/lib/firefox/libmozgtk.so:
+libharfbuzz.so.0: cannot close file descriptor: Too many open files
+Couldn't load XPCOM.
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (199): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2842, si_uid=1000, si_status=255, si_utime=0, si_stime=1} ---
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005C,name=PContent::Msg_RefreshScreens) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003E,name=PContent::Msg_SetXPCOMProcessAttributes) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35002F,name=PContent::Msg_UpdateSharedData) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350019,name=PContent::Msg_RegisterChrome) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35002E,name=PContent::Msg_RegisterStringBundles) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350038,name=PContent::Msg_AppInfo) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350039,name=PContent::Msg_RemoteType) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350017,name=PContent::Msg_PScriptCacheConstructor) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350049,name=PContent::Msg_LoadProcessScript) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35000A,name=PContent::Msg_InitRendering) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35000F,name=PContent::Msg_SetProcessSandbox) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005B,name=PContent::Msg_SetPermissionsWithKey) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005B,name=PContent::Msg_SetPermissionsWithKey) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003A,name=PContent::Msg_InitServiceWorkers) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005D,name=PContent::Msg_PIPCBlobInputStreamConstructor) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005B,name=PContent::Msg_SetPermissionsWithKey) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003B,name=PContent::Msg_InitBlobURLs) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35003C,name=PContent::Msg_InitJSWindowActorInfos) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35005F,name=PContent::Msg_SetPluginList) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350065,name=PContent::Msg_SetInputEventQueueEnabled) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350068,name=PContent::Msg_SuspendInputEventQueue) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350066,name=PContent::Msg_FlushInputEventQueue) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350067,name=PContent::Msg_ResumeInputEventQueue) Channel error: cannot send/recv
+
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (211): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (209): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (207): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350008,name=PContent::Msg_InitProcessHangMonitor) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350009,name=PContent::Msg_InitProfiler) Channel error: cannot send/recv
+
+[Parent 2659, Main Thread] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 23
+[Parent 2659, Gecko_IOThread] WARNING: pipe error (209): Connection reset by peer: file /build/firefox-oTXxYK/firefox-68.0+build3/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350055,name=PContent::Msg_GMPsChanged) Channel error: cannot send/recv
+
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2773, si_uid=1000, si_status=0, si_utime=109, si_stime=14} ---
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x35006F,name=PContent::Msg_RegisterBrowsingContextGroup) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350002,name=PContent::Msg_ConstructBrowser) Channel error: cannot send/recv
+
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x350002,name=PContent::Msg_ConstructBrowser) Channel error: cannot send/recv
+
+shmdt(0x7fa2a1079000)                   = 0
+shmdt(0x7fa29e979000)                   = 0
+shmdt(0x7fa29def6000)                   = 0
+shmdt(0x7fa29dad5000)                   = 0
+shmdt(0x7fa2a7c1a000)                   = 0
+shmdt(0x7fa2a7c1f000)                   = 0
+shmdt(0x7fa2a47bb000)                   = 0
+shmdt(0x7fa2acd22000)                   = 0
+shmdt(0x7fa2a660c000)                   = 0
+shmdt(0x7fa2a6611000)                   = 0
+shmdt(0x7fa2acd1c000)                   = 0
+shmdt(0x7fa2acf67000)                   = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2734, si_uid=1000, si_status=0, si_utime=53, si_stime=10} ---
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2697, si_uid=1000, si_status=0, si_utime=264, si_stime=28} ---
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2797, si_uid=1000, si_status=0, si_utime=1494, si_stime=132} ---
++++ exited with 0 +++
+]0;blackbox@MyBox: ~[01;32mblackbox@MyBox[00m:[01;34m~[00m$ script
+Script started, file is typescript
+]0;blackbox@MyBox: ~[01;32mblackbox@MyBox[00m:[01;34m~[00m$ exit
+exit
+Script done, file is typescript
+]0;blackbox@MyBox: ~[01;32mblackbox@MyBox[00m:[01;34m~[00m$ exit
+exit
+
+Script done on 2019-11-14 19:13:08-0500

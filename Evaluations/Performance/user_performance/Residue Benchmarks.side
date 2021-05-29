@@ -1,0 +1,176 @@
+{
+  "id": "2473413b-c9c4-4987-8116-7e957252994c",
+  "version": "2.0",
+  "name": "Residue Benchmarks",
+  "url": "https://en.wikipedia.org/",
+  "tests": [{
+    "id": "510d056d-4079-47d6-b61d-e3aa582e71b8",
+    "name": "Residue Benchmark",
+    "commands": [{
+      "id": "c797f60b-df34-48f7-8f9b-122da3bf869c",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e275cd95-03e2-4223-b87b-1385302a3fc2",
+      "comment": "",
+      "command": "open",
+      "target": "https://en.wikipedia.org",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a6eb841e-98e7-4249-bdaa-2ae051d3594c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Perseverance",
+      "targets": [
+        ["linkText=Perseverance", "linkText"],
+        ["css=li > i:nth-child(1) > b > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Perseverance')]", "xpath:link"],
+        ["xpath=//div[@id='mp-itn']/ul/li[4]/i/b/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wiki/Perseverance_(rover)')]", "xpath:href"],
+        ["xpath=//i/b/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Perseverance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "da1b3476-ec51-4e10-9fc7-e1208c5a0d0e",
+      "comment": "",
+      "command": "click",
+      "target": "css=p:nth-child(4) > a:nth-child(10)",
+      "targets": [
+        ["css=p:nth-child(4) > a:nth-child(10)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Mars 2020')])[2]", "xpath:link"],
+        ["xpath=//div[@id='mw-content-text']/div/p[2]/a[6]", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/wiki/Mars_2020')])[2]", "xpath:href"],
+        ["xpath=//a[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f53102cc-4d64-426e-beb4-b35e1904dc9b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=habitability",
+      "targets": [
+        ["linkText=habitability", "linkText"],
+        ["css=p:nth-child(7) > a:nth-child(4)", "css:finder"],
+        ["xpath=//a[contains(text(),'habitability')]", "xpath:link"],
+        ["xpath=//div[@id='mw-content-text']/div/p[3]/a[3]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wiki/Planetary_habitability')]", "xpath:href"],
+        ["xpath=//p[3]/a[3]", "xpath:position"],
+        ["xpath=//a[contains(.,'habitability')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ca0d58a-eb58-4217-8bf1-55e89af8c29b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=geophysical",
+      "targets": [
+        ["linkText=geophysical", "linkText"],
+        ["css=p:nth-child(7) > a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'geophysical')]", "xpath:link"],
+        ["xpath=//div[@id='mw-content-text']/div/p[4]/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wiki/Geophysics')]", "xpath:href"],
+        ["xpath=//p[4]/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'geophysical')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a9b8c31-064d-43ad-ad8c-b75e0ae39c9c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Earth's magnetic field",
+      "targets": [
+        ["linkText=Earth's magnetic field", "linkText"],
+        ["css=.thumb:nth-child(5) a:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='mw-content-text']/div/div[4]/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wiki/Earth%27s_magnetic_field')]", "xpath:href"],
+        ["xpath=//div[4]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c36ddba-1f03-4cfe-9188-11bb24ffb89d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=convection currents",
+      "targets": [
+        ["linkText=convection currents", "linkText"],
+        ["css=p:nth-child(4) > .mw-redirect:nth-child(9)", "css:finder"],
+        ["xpath=//a[contains(text(),'convection currents')]", "xpath:link"],
+        ["xpath=//div[@id='mw-content-text']/div/p[2]/a[7]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wiki/Convection_current')]", "xpath:href"],
+        ["xpath=//a[7]", "xpath:position"],
+        ["xpath=//a[contains(.,'convection currents')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "478b9199-f49e-4d9d-9202-0aa93771a1a4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Bénard cell",
+      "targets": [
+        ["linkText=Bénard cell", "linkText"],
+        ["css=b > .mw-redirect", "css:finder"],
+        ["xpath=//a[contains(text(),'Bénard cell')]", "xpath:link"],
+        ["xpath=//div[@id='mw-content-text']/div/p[12]/b[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wiki/B%C3%A9nard_cell')]", "xpath:href"],
+        ["xpath=//b[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Bénard cell')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "92aa2558-b787-40db-b798-87a37d27d443",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=James Thomson",
+      "targets": [
+        ["linkText=James Thomson", "linkText"],
+        ["css=p:nth-child(31) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'James Thomson')]", "xpath:link"],
+        ["xpath=//div[@id='mw-content-text']/div/p[17]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/wiki/James_Thomson_(engineer)')]", "xpath:href"],
+        ["xpath=//p[17]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'James Thomson')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "51ea737b-2b0a-45dd-82a1-d06c3ec6a551",
+      "comment": "",
+      "command": "open",
+      "target": "http://youtube.com",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3f7f65b0-7bc5-4950-bfcf-eab7e75f1667",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "xpath=//div[@id='contents']/ytd-rich-item-renderer[2]",
+      "targets": [
+        ["css=#contents > .ytd-rich-grid-renderer:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='contents']/ytd-rich-item-renderer[2]", "xpath:idRelative"],
+        ["xpath=//ytd-rich-item-renderer[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "fcc3a40b-cecf-42d1-bfcb-8eba68ffac38",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4d62365a-efdf-48ab-9db6-fd2b6f6bcd87",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://mail.google.com/", "http://en.wikipedia.org/", "https://en.wikipedia.org/"],
+  "plugins": []
+}

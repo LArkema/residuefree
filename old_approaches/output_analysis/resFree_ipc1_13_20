@@ -1,0 +1,17 @@
+3270  +++ exited with 0 +++
+3269  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=3270, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+3272  +++ exited with 0 +++
+3271  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=3272, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+3271  +++ exited with 0 +++
+3269  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=3271, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+3269  +++ exited with 0 +++
+3268  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=3269, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+3268  +++ exited with 0 +++
+3267  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=3268, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+3274  +++ exited with 0 +++
+3273  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=3274, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+3273  +++ exited with 0 +++
+3267  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=3273, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+3267  +++ exited with 0 +++
+3266  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=3267, si_uid=1000, si_status=0, si_utime=6, si_stime=0} ---
+3266  +++ exited with 0 +++

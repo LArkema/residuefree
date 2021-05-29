@@ -1,0 +1,125 @@
+2477  +++ exited with 0 +++
+2476  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2477, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2476  +++ exited with 0 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2476, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2479  +++ exited with 0 +++
+2478  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2479, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2478  +++ exited with 0 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2478, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2481  +++ exited with 1 +++
+2480  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2481, si_uid=0, si_status=1, si_utime=0, si_stime=0} ---
+2480  +++ exited with 1 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2480, si_uid=0, si_status=1, si_utime=0, si_stime=0} ---
+2483  +++ exited with 0 +++
+2482  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2483, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2482  +++ exited with 0 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2482, si_uid=0, si_status=0, si_utime=0, si_stime=1} ---
+2486  +++ exited with 0 +++
+2485  +++ exited with 0 +++
+2484  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2485, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2484  +++ exited with 0 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2484, si_uid=0, si_status=0, si_utime=1, si_stime=0} ---
+2496  +++ exited with 0 +++
+2495  +++ exited with 0 +++
+2494  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2496, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2494  +++ exited with 0 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2494, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2499  +++ exited with 0 +++
+2498  +++ exited with 0 +++
+2497  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2499, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2497  +++ exited with 0 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2497, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2502  +++ exited with 0 +++
+2501  +++ exited with 0 +++
+2500  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2502, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2500  +++ exited with 0 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2500, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2505  +++ exited with 0 +++
+2504  +++ exited with 0 +++
+2503  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2505, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2503  +++ exited with 0 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2503, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2508  +++ exited with 0 +++
+2507  +++ exited with 0 +++
+2506  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2508, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2506  +++ exited with 0 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2506, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2511  +++ exited with 0 +++
+2510  +++ exited with 0 +++
+2509  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2511, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2509  +++ exited with 0 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2509, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2521  +++ exited with 0 +++
+2520  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2521, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2493  +++ exited with 0 +++
+2492  +++ exited with 0 +++
+2491  +++ exited with 0 +++
+2490  +++ exited with 0 +++
+2489  +++ exited with 0 +++
+2528  +++ exited with 0 +++
+2527  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2528, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2527  +++ exited with 0 +++
+2520  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2527, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2520  +++ exited with 0 +++
+2519  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2520, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2519  +++ exited with 0 +++
+2513  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2519, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2530  +++ exited with 0 +++
+2529  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2530, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2529  +++ exited with 0 +++
+2513  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2529, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2516  +++ exited with 0 +++
+2515  +++ exited with 0 +++
+2514  +++ exited with 0 +++
+2522  +++ exited with 0 +++
+2518  +++ exited with 0 +++
+2517  +++ exited with 0 +++
+2578  +++ exited with 0 +++
+2577  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2578, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+2580  +++ exited with 0 +++
+2579  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2580, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+2579  +++ exited with 0 +++
+2577  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2579, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+2577  +++ exited with 0 +++
+2576  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2577, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+2576  +++ exited with 0 +++
+2572  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2576, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+2583  +++ exited with 0 +++
+2581  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2583, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+2581  +++ exited with 0 +++
+2572  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2581, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+2676  +++ exited with 0 +++
+2675  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2676, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+2675  +++ exited with 255 +++
+2572  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2675, si_uid=1000, si_status=255, si_utime=0, si_stime=1} ---
+2689  +++ exited with 1 +++
+2572  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2689, si_uid=1000, si_status=1, si_utime=0, si_stime=0} ---
+2572  +++ exited with 255 +++
+2568  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2572, si_uid=1000, si_status=255, si_utime=14, si_stime=4} ---
+2568  +++ exited with 255 +++
+2513  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2568, si_uid=0, si_status=255, si_utime=1, si_stime=1} ---
+2525  +++ exited with 0 +++
+2524  +++ exited with 0 +++
+2523  +++ exited with 0 +++
+2696  +++ exited with 0 +++
+2692  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2696, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
+2694  +++ exited with 0 +++
+2697  +++ exited with 0 +++
+2692  +++ exited with 255 +++
+2513  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2692, si_uid=0, si_status=255, si_utime=0, si_stime=0} ---
+2513  +++ exited with 255 +++
+2512  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2513, si_uid=0, si_status=255, si_utime=14, si_stime=4} ---
+2512  +++ exited with 255 +++
+2475  --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2512, si_uid=0, si_status=255, si_utime=1, si_stime=0} ---
+2475  +++ exited with 255 +++
+2570  +++ exited with 0 +++
+2571  +++ exited with 0 +++
+2573  +++ exited with 0 +++
+2574  +++ exited with 0 +++
+2569  +++ exited with 0 +++
+2693  +++ exited with 0 +++
+2575  +++ exited with 0 +++
+2526  +++ exited with 0 +++
+2695  +++ exited with 0 +++
+2698  +++ exited with 0 +++
+2488  +++ exited with 0 +++
