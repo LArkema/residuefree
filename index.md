@@ -2,13 +2,14 @@
 ResidueFree is a Proof-of-Concept Implementation of residue-free computing as detailed by Logan Arkema
 and Micah Sherr in ResidueFree (Proceedings of the Privacy Enhancing Technologies Symposium, 2021 Volume 4, full citation forthcoming).
 
-This repository provides the functionality described in that paper and was used to generate all test cases and evaluation data. It does not represent a complete, or the most efficient, implementation of residue-free computing. Further, this repository contains the scripts and performance data we used to evaluate ResidueFree's privacy-preserving effectiveness and performance impacts.
+This repository provides the functionality described and evaluated in the paper. It does not represent a complete, or the most efficient, implementation of residue-free computing. Further, this repository contains the scripts and data we used to evaluate ResidueFree's forensic performance impacts.
 
-We are releasing ResidueFree as open-source code for researchers who wish to duplicate our results and/or build on our work. This implementation has more direct room for improvement, like supporting multiple residue-free sessions simultaneously, (relatedly) enabling multiple applications to be launched in residue-free mode using GUI options, or expanding to non-Ubuntu
-Linux distribtions.
+We are releasing ResidueFree as open-source code for researchers who wish to duplicate our results and/or build on our work. This implementation has room for some direct improvements, like supporting multiple residue-free sessions simultaneously, enabling multiple applications to be launched in residue-free mode using the GUI interface, or expanding to non-Ubuntu Linux distribtions.
 
-However, there is also room for more significant improvements, like using lower-level namespaces and containerization features
-rather than Docker, supproting MacOS implementations, and - through more substantive effort - supporting Windows.  While we aim to work on these improvements as we are able, we look forward to any contributions the communtiy provides.
+However, there is also room for more significant improvements, like using lower-level namespaces and containerization features instead of Docker, supproting MacOS implementations, and - through more substantive effort - supporting Windows. We are also including some code from early in the development process before we used Docker for containerization. While we aim to work on these improvements as we are able, we look forward to any contributions the communtiy provides.
+
+### Run ResidueFree
+Clone this repository, enter the "residuefree" directory, set the scripts to executable using `chmod +x` and run `sudo ./residueFree.sh -p` to launch a bash shell running inside ResidueFree. Full installation and command-line options are shown using the `-h` flag.
 
 ## Files
 [residueFree.sh](https://github.com/LArkema/residuefree/blob/main/residueFree.sh) - the main script that sets up and enters a ResidueFree session, either in privacy mode (`-p`) or forensics mode (`-f`). In privacy mode, all modified files are stored in RAM, encrypted, and immediately erased when the ResidueFree session ends. In forensics mode, all modified files are seperated to a designated folder in the current filesystem for subsequent evaluation. 
