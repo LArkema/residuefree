@@ -594,8 +594,8 @@ CLEANUP_PID=$!
 	--mount type=bind,source=/mnt/nvar,target=/var \
 	--privileged \
 	--net=host \
-	--sysctl net.ipv6.conf.all.disable_ipv6=0 \
 	ubuntu:18.04 /usr/bin/sudo -u $SUDO_USER /bin/bash $ENVFILE
+	#--sysctl net.ipv6.conf.all.disable_ipv6=0 \ # include in options to enable openVPN. Not working with Docker update.
 
 # Run cleanup and exit
 cleanup
