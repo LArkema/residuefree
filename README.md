@@ -13,7 +13,7 @@ rather than Docker, supproting MacOS implementations, and - through more substan
 ## Files
 [residueFree.sh](residueFree.sh) - the main script that sets up and enters a ResidueFree session, either in privacy mode (`-p`) or forensics mode (`-f`). In privacy mode, all modified files are stored in RAM, encrypted, and immediately erased when the ResidueFree session ends. In forensics mode, all modified files are seperated to a designated folder in the current filesystem for subsequent evaluation. 
 
-By default, ResidueFree launches a new bash shell, but a specific command can also be passed as a command line argument. Additional command line options are available using the -h flag.
+By default, ResidueFree launches a new bash shell, but a specific command can also be passed as a command line argument. Additional command line options are available using the `-h` flag.
 
 [enable_GUI.sh](enable_GUI.sh) - A copy of the enable_GUI() function in residueFree.sh that creates a "Run in ResidueFree" right-click option for all desktop applications with a .desktop file in /usr/share/applications. Available as a seperate file in case a user decides to enable the GUI option after initial set-up or if the ResidueFree option is removed after an application update.
 
