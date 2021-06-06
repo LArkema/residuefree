@@ -27,3 +27,9 @@ Folder contains all scripts used to evaluate ResidueFree's forensic and performa
 
 ## [Old Approaches](https://github.com/LArkema/residuefree/blob/main/old_approaches)
 Folder contains an old version of ResidueFree and older files used to test potential components of ResidueFree before using Docker to provide namespace and containerization features. These files are not well-documented or well-written, but we are providing them for anyone who wants to work on a version of ResidueFree that does not use Docker.
+
+### Dependencies
+ResidueFree was most recently tested on the following dependency versions:
+- Docker version 20.10.2, build 20.10.2-0ubuntu1~18.04.2 (`docker -v`)
+- ecryptfsd (ecryptfs-utils) 111 (`ecryptfd -v`)
+- unionfs-fuse version 1.0, FUSE library version 2.9.7, fusermount version 2.9.7, FUSE kernel interface version 7.19 (`unionfs -V`)
