@@ -36,4 +36,5 @@ ResidueFree was most recently tested on the following dependency versions:
 
 ### VM
 A [virtual machine](https://georgetown.box.com/s/xnlevmxnbgdc4q08lmkpkr49sw4egq98) with this repository and all dependencies installed is available for [download](https://georgetown.box.com/s/xnlevmxnbgdc4q08lmkpkr49sw4egq98). 
-Credentials:  user0:ResidueFreeIsNeat
+ - Credentials:  user0:ResidueFreeIsNeat
+ - SHA256: 8E69AED437EB99A5BC272A4C8250233B2A55ED9BEA096A0164A0208497C1FBD2
