@@ -33,3 +33,7 @@ ResidueFree was most recently tested on the following dependency versions:
 - Docker version 20.10.2, build 20.10.2-0ubuntu1~18.04.2 (`docker -v`)
 - ecryptfsd (ecryptfs-utils) 111 (`ecryptfd -v`)
 - unionfs-fuse version 1.0, FUSE library version 2.9.7, fusermount version 2.9.7, FUSE kernel interface version 7.19 (`unionfs -V`)
+
+### VM
+A [virtual machine](https://georgetown.box.com/s/xnlevmxnbgdc4q08lmkpkr49sw4egq98) with this repository and all dependencies installed is available for [download](https://georgetown.box.com/s/xnlevmxnbgdc4q08lmkpkr49sw4egq98). 
+Credentials:  user0:ResidueFreeIsNeat
