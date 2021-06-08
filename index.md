@@ -41,9 +41,11 @@ A [virtual machine](https://georgetown.box.com/s/xnlevmxnbgdc4q08lmkpkr49sw4egq9
 
 ### [Citation](https://github.com/LArkema/residuefree/blob/main/citation.bib)
 Please cite this work using the following BibTex, also in [citation.bib](https://github.com/LArkema/residuefree/blob/main/citation.bib):
-`@article{arkema2021,
+```
+@article{arkema2021,
   author = {Arkema, Logan and Sherr, Micah},
   journal = {Proceedings on Privacy Enhancing Technologies (PoPETS)},
   title = {{Residue-Free Computing}},
   year = {2021}
-}`
+}
+```
