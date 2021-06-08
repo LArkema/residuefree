@@ -45,7 +45,7 @@ Please cite this work using the following BibTex, also in [citation.bib](https:/
 @article{arkema2021,
   author = {Arkema, Logan and Sherr, Micah},
   journal = {Proceedings on Privacy Enhancing Technologies (PoPETS)},
-  title = {{Residue-Free Computing}},
+  title = {Residue-Free Computing},
   year = {2021}
 }
 ```
