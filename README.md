@@ -8,7 +8,7 @@ We are releasing ResidueFree as open-source code for researchers who wish to dup
 
 However, there is also room for more significant improvements, like using lower-level namespaces and containerization features instead of Docker, supproting MacOS implementations, and - through more substantive effort - supporting Windows. We are also including some code from early in the development process before we used Docker for containerization. While we aim to work on these improvements as we are able, we look forward to any contributions the communtiy provides.
 
-## Presentation(Presentation)
+## [Presentation](Presentation)
 You can view [Residue-Free Computing presentation](Presentation/ResidueFree_Presentation.mp4) we presented at PETS, as well as the [presentation with captions](Presentation/ResidueFree_Presentation_Captions.mp4). We have also uploaded our [PETS poster](Presentation/ResidueFree_Poster.pdf).
 
 ### Run ResidueFree
