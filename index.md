@@ -1,6 +1,6 @@
 # Overview
 ResidueFree is a Proof-of-Concept Implementation of residue-free computing as detailed by Logan Arkema
-and Micah Sherr in ResidueFree (Proceedings of the Privacy Enhancing Technologies Symposium, 2021 Volume 4, full citation forthcoming).
+and Micah Sherr in ResidueFree (Proceedings of the Privacy Enhancing Technologies Symposium, 2021 Issue 4, full citation forthcoming).
 
 This repository provides the functionality described and evaluated in the paper. It does not represent a complete, or the most efficient, implementation of residue-free computing. Further, this repository contains the scripts and data we used to evaluate ResidueFree's forensic performance impacts.
 
@@ -27,6 +27,9 @@ Folder contains all scripts used to evaluate ResidueFree's forensic and performa
 
 ## [Old Approaches](https://github.com/LArkema/residuefree/blob/main/old_approaches)
 Folder contains an old version of ResidueFree and older files used to test potential components of ResidueFree before using Docker to provide namespace and containerization features. These files are not well-documented or well-written, but we are providing them for anyone who wants to work on a version of ResidueFree that does not use Docker.
+
+## [Presentation](https://github.com/LArkema/residuefree/blob/main/Presentation)
+You can view [Residue-Free Computing presentation](https://github.com/LArkema/residuefree/blob/main/Presentation/ResidueFree_Presentation.mp4) we presented at PETS, as well as the [presentation with captions](https://github.com/LArkema/residuefree/blob/main/Presentation/ResidueFree_Presentation_Captions.mp4). We have also uploaded our [PETS poster](https://github.com/LArkema/residuefree/blob/main/Presentation/ResidueFree_Poster.pdf).
 
 ### Dependencies
 ResidueFree was most recently tested on the following dependency versions:
