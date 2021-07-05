@@ -1,6 +1,6 @@
 # Overview
 ResidueFree is a Proof-of-Concept Implementation of residue-free computing as detailed by Logan Arkema
-and Micah Sherr in ResidueFree (Proceedings of the Privacy Enhancing Technologies Symposium, 2021 Volume 4, full citation forthcoming).
+and Micah Sherr in ResidueFree (Proceedings of the Privacy Enhancing Technologies Symposium, 2021 Issue 4, full citation forthcoming).
 
 This repository provides the functionality described and evaluated in the paper. It does not represent a complete, or the most efficient, implementation of residue-free computing. Further, this repository contains the scripts and data we used to evaluate ResidueFree's forensic performance impacts.
 
