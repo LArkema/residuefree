@@ -1,3 +1,0 @@
-This folder is old version of ResidueFree and older files used to test potential components of ResidueFree before using Docker to provide namespace and containerization features. These files are not well-documented or well-written, but we are providing them for anyone who wants to work on a version of ResidueFree that does not use Docker. 
-
-Many of these files were written, and error files generated, during the very initial stages of ResidueFree development (circa 2019). We are unlikely to be able to describe the context of some of the files, especially error files, if we were asked. We're hoping they provide marginal utility to anyone who wishes to use them, but will not be surprised if they do not.

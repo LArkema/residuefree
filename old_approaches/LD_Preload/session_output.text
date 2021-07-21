@@ -1,7 +1,0 @@
- 
- 
-@/tmp/.X11-unix/X0 - whitelist 
-@/tmp/.ICE-unix/2690 - whitelist 
-/run/user/1000/bus - blocked
-@/tmp/.X11-unix/X0 - whitelist 
-/run/user/1000/:0 - blocked
