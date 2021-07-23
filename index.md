@@ -1,6 +1,5 @@
-# Overview
-ResidueFree is a Proof-of-Concept Implementation of residue-free computing as detailed by Logan Arkema
-and Micah Sherr in ResidueFree (Proceedings of the Privacy Enhancing Technologies Symposium, 2021 Issue 4, full citation forthcoming).
+ResidueFree is a proof-of-concept implementation of residue-free computing as detailed by Logan Arkema
+and Micah Sherr in [Residue-Free Computing](https://petsymposium.org/2021/files/papers/issue4/popets-2021-0076.pdf) (Proceedings of the Privacy Enhancing Technologies Symposium, 2021 Issue 4, full citation forthcoming).
 
 This repository provides the functionality described and evaluated in the paper. It does not represent a complete, or the most efficient, implementation of residue-free computing. Further, this repository contains the scripts and data we used to evaluate ResidueFree's forensic performance impacts.
 
@@ -11,8 +10,10 @@ However, there is also room for more significant improvements, like using lower-
 ### Run ResidueFree
 Clone this repository, enter the "residuefree" directory, set the scripts to executable using `chmod +x` and run `sudo ./residueFree.sh -p` to launch a bash shell running inside ResidueFree. Full installation and command-line options are shown using the `-h` flag.
 
+Dependency Note: The first time ResidueFree runs, it will ask to install Docker, Ecryptfs, and Unionfs if they are not installed already. Agreeing to install these packages will use apt to install them and all of their respective dependencies. 
+
 ## Files
-[residueFree.sh](https://github.com/LArkema/residuefree/blob/main/residueFree.sh) - the main script that sets up and enters a ResidueFree session, either in privacy mode (`-p`) or forensics mode (`-f`). In privacy mode, all modified files are stored in RAM, encrypted, and immediately erased when the ResidueFree session ends. In forensics mode, all modified files are seperated to a designated folder in the current filesystem for subsequent evaluation. 
+[residueFree.sh](https://github.com/LArkema/residuefree/blob/main/residueFree.sh) - the main script that sets up and enters a ResidueFree session, either in privacy mode (`-p`) or forensics mode (`-f`). In privacy mode, all modified files are stored in RAM, encrypted, and immediately erased when the ResidueFree session ends. In forensics mode, all modified files are seperated to a designated folder in the current filesystem for subsequent analysis. 
 
 By default, ResidueFree launches a new bash shell, but a specific command can also be passed as a command line argument. Additional command line options are available using the `-h` flag.
 
@@ -22,27 +23,29 @@ By default, ResidueFree launches a new bash shell, but a specific command can al
 
 [emergency_residue_cleanup.sh](https://github.com/LArkema/residuefree/blob/main/emergency_residue_cleanup.sh) - A copy of ResidueFree's cleanup process (actually destorying the residue) that only runs if ResidueFree is killed before it can cleanup itself.
 
-## [Evaluations](https://github.com/LArkema/residuefree/blob/main/Evaluations)
-Folder contains all scripts used to evaluate ResidueFree's forensic and performance impacts, as well as all performance data presented in the paper. More detailed information is available in the folder's README file. 
-
 ## [Old Approaches](https://github.com/LArkema/residuefree/blob/main/old_approaches)
 Folder contains an old version of ResidueFree and older files used to test potential components of ResidueFree before using Docker to provide namespace and containerization features. These files are not well-documented or well-written, but we are providing them for anyone who wants to work on a version of ResidueFree that does not use Docker.
 
-## [Presentation](https://github.com/LArkema/residuefree/blob/main/Presentation)
-You can view [Residue-Free Computing presentation](https://github.com/LArkema/residuefree/blob/main/Presentation/ResidueFree_Presentation.mp4) we presented at PETS, as well as the [presentation with captions](https://github.com/LArkema/residuefree/blob/main/Presentation/ResidueFree_Presentation_Captions.mp4). We have also uploaded our [PETS poster](https://github.com/LArkema/residuefree/blob/main/Presentation/ResidueFree_Poster.pdf).
+# Non-code Paper Artifacts
 
-### Dependencies
+## [Evaluations](https://github.com/LArkema/residuefree/tree/Evaluations)
+This branch contains all scripts used to evaluate ResidueFree's forensic and performance impacts, as well as all performance data presented in the paper. More detailed information is available in the branch's README file.
+
+## Presentation
+You can view [Residue-Free Computing presentation](https://georgetown.box.com/s/4w1ynxt3iy77b4fjcvlez9eihxn574l5) we presented at PETS, as well as the [presentation with captions](https://georgetown.box.com/s/02c9c3gtgmz8fnzkvdokio5af4b7fz1u). We have also uploaded our [PETS poster](https://georgetown.box.com/s/uzfwj0wzkbg62u3dekgtlu8df2z68fbh). After PETS makes the presentation publicly available on YouTube, we will also provide a link to that recording.
+
+## Dependencies
 ResidueFree was most recently tested on the following dependency versions:
 - Docker version 20.10.2, build 20.10.2-0ubuntu1~18.04.2 (`docker -v`)
 - ecryptfsd (ecryptfs-utils) 111 (`ecryptfd -v`)
 - unionfs-fuse version 1.0, FUSE library version 2.9.7, fusermount version 2.9.7, FUSE kernel interface version 7.19 (`unionfs -V`)
 
-### VM
+## VM
 A [virtual machine](https://georgetown.box.com/s/xnlevmxnbgdc4q08lmkpkr49sw4egq98) with this repository and all dependencies installed is available for [download](https://georgetown.box.com/s/xnlevmxnbgdc4q08lmkpkr49sw4egq98). 
  - Credentials:  user0:ResidueFreeIsNeat
  - SHA256: 8E69AED437EB99A5BC272A4C8250233B2A55ED9BEA096A0164A0208497C1FBD2
 
-### [Citation](https://github.com/LArkema/residuefree/blob/main/citation.bib)
+## [Citation](https://github.com/LArkema/residuefree/blob/main/citation.bib)
 Please cite this work using the following BibTex, also in [citation.bib](https://github.com/LArkema/residuefree/blob/main/citation.bib):
 ```
 @article{arkema2021,
