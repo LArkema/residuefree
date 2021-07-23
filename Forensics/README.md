@@ -1,5 +1,5 @@
 # Overview
-This folder describes the steps we used to *analyze* the filesystems for an Ubuntu VM after being idle, after running ResidueFree, and ten minutes after running ResidueFree. The steps we used to generate these filesystem artifacts are described in detail in the paper (Section 7.1: Forensic Evaluation).
+This folder describes the steps we used to *analyze* the filesystems for an Ubuntu VM after being idle, after running ResidueFree, and ten minutes after running ResidueFree. The steps we used to generate these filesystem artifacts are described in detail in the [paper](https://petsymposium.org/2021/files/papers/issue4/popets-2021-0076.pdf) (Section 7.1: Forensic Evaluation).
 
 # Steps and Commands
 1. We conducted these tests on Ubuntu 18.04 VMs using the iso downloaded from [Ubuntu](https://releases.ubuntu.com/18.04/) and VMWare Player
