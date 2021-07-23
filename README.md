@@ -1,5 +1,5 @@
 # Evaluations
-This branch contains the results of the extensive evaluations we performed on ResidueFree for the Residue-Free Computing paper. They represent the functionality of ResidueFree as of the main repository's initial commit, and performance tests were run on a Toshiba Satellite laptop with an i3 processor and 6GB of RAM. 
+This branch contains the results of the extensive evaluations we performed on ResidueFree for the [Residue-Free Computing paper](https://petsymposium.org/2021/files/papers/issue4/popets-2021-0076.pdf). They represent the functionality of ResidueFree as of the main repository's initial commit, and performance tests were run on a Toshiba Satellite laptop with an i3 processor and 6GB of RAM. 
 
 ## [Performance](Performance)
 The performance folder contains the Jupyter Notebook Python scripts that were used to analyze and visualize (i.e. generate the graphs used in the paper) the Iozone filesystem benchmarks, Phoronix system performance benchamrks, overhead (i.e. startup and shutdown) time tests, and the user application performance tests. In addition to these scripts, the commands and/or scripts used to generate the data, as well as the data presented in the paper are in their respective sub-directories. 
