@@ -1,4 +1,4 @@
-This directory contains details on the tests we ran to measure ResidueFree's performance, the data from those tests, and the scripts we used to generate the analysis and graphs we presented in the [paper](https://petsymposium.org/2021/files/papers/issue4/popets-2021-0076.pdf). 
+This directory contains details on the tests we ran to measure ResidueFree's performance, the data from those tests, and the scripts we used to generate the analysis and graphs we presented in the [paper](https://sciendo.com/de/article/10.2478/popets-2021-0076). 
 
 [Benchmark Results](benchmark_results) contains the commands we used to generate the Iozone and Phoronix benchmark results and the results of those benchmark tests. Data from both benchmarks is analyzed in [filesystem_testing_visualization.ipynb](filesystem_testing_visualization.ipynb), which generates figures [3 / File Operations](Figures/Files.pdf); and [Phoronix_Result_Visualization.ipynb](Phoronix_Result_Visualization.ipynb), which generates figures [4 / Loopback Speeds](Figures/Loopback.pdf), [5 / OpenSSL Speeds](Figures/OpenSSL.pdf), [6 / Graphics Speeds](Figures/API.pdf), and [7 / RAM Speeds](Figures/RamSpeed.pdf).
 
