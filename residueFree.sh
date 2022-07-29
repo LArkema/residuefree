@@ -2,7 +2,7 @@
 
 ###############################
 # Author: Logan Arkema        #
-# Published: June 2021        #
+# (C) 2022	              #
 # License: GNU GPLv3          #
 ############################### 
 
@@ -217,6 +217,7 @@ SIZE=1g # Size of tmpfs (privacy mode) - default 1 GB
 FIRST_RUN=FALSE # Track if this is install run or not
 REMOUNT=True # Check if main filesystem remounted with noatime option or not
 KEEP_DIR=/mnt/nhome/$SUDO_USER/KEEP_FILES # Directory for files the user wants to keep
+OS_VER=$(cat /etc/*release* | grep "VERSION_ID=" | cut -d '"' -f 2) # Ubuntu operating system version
 
 ## Run cleanup after recieving interrupt or kill signals
 trap cleanup SIGINT SIGTERM
@@ -349,8 +350,8 @@ fi
 
 #Confirm an operating mode was selected
 if [ $MODE == "NULL" ]; then
-	/bin/echo "Must specify forensic or privacy mode" 1>&2
-	print_help
+	/bin/echo "No mode selected. Defaulting to private mode." 1>&2
+	MODE=PRIVACY
 fi
 
 #If -p used with file format options, warn user output will be deleted
