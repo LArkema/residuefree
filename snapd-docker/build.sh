@@ -107,6 +107,7 @@ $SUDO podman run \
     --tmpfs /tmp \
     --device=/dev/fuse \
     --privileged \
+    -v /snap/bin/htop:/snap/bin/htop -v /usr/bin/snap:/usr/bin/snap \
     -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
     -v /lib/modules:/lib/modules:ro \
     -d $IMGNAME || clean_up
