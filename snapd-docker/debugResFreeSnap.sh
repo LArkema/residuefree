@@ -383,22 +383,32 @@ fi
 
 ## Add residue file system directories to updatedb.conf so that mlocate doesn't store file names
 UPDATEDB_CONF="/etc/updatedb.conf"
-PRUNE_BK=$(/bin/grep "PRUNEPATHS" $UPDATEDB_CONF | /usr/bin/cut -d'=' -f2 | /usr/bin/cut -d'"' -f 2)
 
-PRUNE_LIST=''
-for dir in ${DIRS[*]}; do
-	PRUNE_LIST=$PRUNE_LIST" \/mnt\/n$dir"
-done
+if [[ -f "$UPDATEDB_CONF" ]]; then
+	PRUNE_BK=$(/bin/grep "PRUNEPATHS" $UPDATEDB_CONF | /usr/bin/cut -d'=' -f2 | /usr/bin/cut -d'"' -f 2)
 
-#Get end of current configuration to append residue directories to and as a cut off point later.
-PRUNE_LAST=$(/bin/echo -n $PRUNE_BK | /usr/bin/rev | /usr/bin/cut -d'/' -f 1 | /usr/bin/rev)
-/bin/sed -i "/PRUNEPATHS/s/$PRUNE_LAST/$PRUNE_LAST$PRUNE_LIST/" $UPDATEDB_CONF
+	PRUNE_LIST=''
+	for dir in ${DIRS[*]}; do
+		PRUNE_LIST=$PRUNE_LIST" \/mnt\/n$dir"
+	done
 
+	#Get end of current configuration to append residue directories to and as a cut off point later.
+	PRUNE_LAST=$(/bin/echo -n $PRUNE_BK | /usr/bin/rev | /usr/bin/cut -d'/' -f 1 | /usr/bin/rev)
+	/bin/sed -i "/PRUNEPATHS/s/$PRUNE_LAST/$PRUNE_LAST$PRUNE_LIST/" $UPDATEDB_CONF
 
-#And remove write perms from mlocate.db files
-for file in /var/lib/mlocate/*; do
-	/bin/chmod 440 $file
-done
+else
+	echo "No updatedeb.conf"
+fi
+
+if [[ -d "/var/lib/mlocate" ]]; then
+
+	#And remove write perms from mlocate.db files
+	for file in /var/lib/mlocate/*; do
+		/bin/chmod 440 $file
+	done
+else
+	echo "No mlocate"
+fi
 
 ## Stop journaling and logging while ResiudeFree runs.
 JOURNAL_STORAGE=$(/bin/grep 'Storage' /etc/systemd/journald.conf)
@@ -481,14 +491,14 @@ done
  /bin/mount --rbind /tmp/.X11-unix/ /mnt/ntmp/.X11-unix/
  /bin/mount --rbind /tmp/.ICE-unix/ /mnt/ntmp/.ICE-unix/
 # /bin/mount --rbind /run/lock /mnt/nrun/lock
- /bin/mount --rbind /run/dbus /mnt/nrun/dbus
+# /bin/mount --rbind /run/dbus /mnt/nrun/dbus
 # /bin/mount --rbind /run/dbus/system_bus_socket /mnt/nrun/dbus/system_bus_socket
 # /bin/mount --rbind /run/user/$SUDO_UID/at-spi/bus /mnt/nrun/user/$SUDO_UID/at-spi/bus
- /bin/mount --rbind /run/user/$SUDO_UID /mnt/nrun/user/$SUDO_UID
- /bin/mount --rbind /run/user/$SUDO_UID/bus /mnt/nrun/user/$SUDO_UID/bus
- /bin/mount --rbind /run/snapd.socket /mnt/nrun/snapd.socket
- /bin/mount --rbind /run/snapd-snap.socket /mnt/nrun/snapd-snap.socket
- /bin/chown -R $SUDO_UID:$SUDO_GID /mnt/nrun/user/$SUDO_UID 2>/dev/null
+# /bin/mount --rbind /run/user/$SUDO_UID /mnt/nrun/user/$SUDO_UID
+# /bin/mount --rbind /run/user/$SUDO_UID/bus /mnt/nrun/user/$SUDO_UID/bus
+# /bin/mount --rbind /run/snapd.socket /mnt/nrun/snapd.socket
+# /bin/mount --rbind /run/snapd-snap.socket /mnt/nrun/snapd-snap.socket
+# /bin/chown -R $SUDO_UID:$SUDO_GID /mnt/nrun/user/$SUDO_UID 2>/dev/null
  /bin/chown -R $SUDO_UID:$SUDO_GID /mnt/nhome/$SUDO_USER/.cache/dconf
 
  
@@ -525,8 +535,8 @@ else
 fi
 
 #Kill user daemons that write to files (keyring and pulseaudio)
-/bin/su -c "/usr/bin/pulseaudio --kill" $SUDO_USER
-/bin/kill -9 $KEYRING_PID 2>/dev/null
+#/bin/su -c "/usr/bin/pulseaudio --kill" $SUDO_USER
+#/bin/kill -9 $KEYRING_PID 2>/dev/null
 
 #Disable writes to gnome's file for tracking application usage
 /bin/su -c "/usr/bin/gsettings set org.gnome.desktop.privacy remember-app-usage false" $SUDO_USER
@@ -551,7 +561,7 @@ SETUPFILE=/mnt/nroot/setup_commands.sh #Stored in tmpfs to ensure deletion
 /bin/sed -i '/LESSCLOSE=/{s/LESS/"LESS/;s/$/"/;}' $ENVFILE
 /bin/sed -i '/export PATH=/d' $ENVFILE
 /bin/echo "export $(grep 'PATH=' /etc/environment)" >> $ENVFILE
-/bin/echo "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$SUDO_UID/bus" >> $ENVFILE
+#/bin/echo "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$SUDO_UID/bus" >> $ENVFILE
 
 /bin/echo "/bin/bash /tmp/user_daemons.sh" >> $ENVFILE
 /bin/sed -i '/-[fpozmsh]/d' $ENVFILE #Delete command line options added to the shell environment
@@ -574,9 +584,7 @@ SETUPFILE=/mnt/nroot/setup_commands.sh #Stored in tmpfs to ensure deletion
 /bin/echo "/bin/mount -t securityfs securityfs /sys/kernel/security" >> $SETUPFILE #Trick snap into thinking AppArmor installed
 #/bin/echo "mount -a" >> $SETUPFILE
 
-
-#/bin/echo "sleep 3" >> $SETUPFILE
-#/bin/echo "systemctl status snapd" >> $SETUPFILE
+/bin/echo "chown $SUDO_USER:$SUDO_USER /run/user/$SUDO_UID/" >> $SETUPFILE
 
 /bin/echo "/usr/bin/sudo -u $SUDO_USER /bin/bash /tmp/user_env.sh" >> $SETUPFILE
 #/bin/echo "sleep 4 && systemctl status snapd" >> $SETUPFILE
@@ -608,13 +616,6 @@ SETUPFILE=/mnt/nroot/setup_commands.sh #Stored in tmpfs to ensure deletion
 
 rm -rf /mnt/netc/acpi/
 
-#rm -rf /mnt/nrun/dbus*
-#rm -rf /mnt/nrun/user/
-#rm -rf /mnt/nrun/snapd*
-
-
-rm -rf /mnt/nboot/*
-mkdir /mnt/nboot/efi
 
 find /mnt/netc/systemd/ -iname "*.service" -not -iname "snap*" -exec rm -f {} \;
 
@@ -647,6 +648,7 @@ CLEANUP_PID=$!
 	--mount type=bind,source=/mnt/nsys,target=/sys \
 	--mount type=bind,source=/mnt/netc,target=/etc \
 	--tmpfs /boot/efi \
+	--mount type=bind,source=/run/user/1000/pulse/native,target=/run/user/1000/pulse/native \
 	--privileged \
 	--net=host \
 	ubuntu:22.04 /sbin/init #/usr/bin/sudo -u $SUDO_USER /bin/bash $ENVFILE
