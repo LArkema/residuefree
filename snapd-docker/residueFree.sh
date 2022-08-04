@@ -24,18 +24,24 @@
 # Print basic help information if improper parameters are entered or -h
 print_help()
 {
-	echo "Usage: sudo ./residueFree.sh [-h] | -p [-s SIZE] | -f [-o OUTDIR] [-z] [-m]
+	echo "Usage: sudo ./residueFree.sh [-h] | -p [-s SIZE] [-o KEEP_DIR] | -f [-o OUTDIR] [-z] [-m] [-D]
 
 where:
 	-h  show help text
-	-p  select privacy mode (no file changes reach disk and are destroyed after use)
-	-f  select forensic mode (files changed are saved for analysis - all changed files have execute bit removed)
+
+	Privacy Mode Options
+	-p  select privacy mode - default (no file changes reach disk and are destroyed after use)
 	-s  specify the size of the cache in RAM for changed files (default 1 Gigabyte - privacy mode only)
 	    Accepts the same arguments as tmpfs(5) -o size=bytes
 	    WARNING: Some arguments may cause programs to misfunction or corrupt RAM
+	-o  specify which directory kept files are saved to
+
+	Forensic Mode Options
+	-f  select forensic mode - privacy default (files changed are saved for analysis - all changed files have execute bit removed)
 	-o  specify the directory where changed files are written to (default ./\"residue_free_cache_<DATE_TIME>\")
 	-z  zip output files instead of leaving them in a directory tree structure
-	-m  maintain empty root directories in saved cache output (deleted by default)"
+	-m  maintain empty root directories in saved cache output (deleted by default)
+	-D  do not create diff file for all diffs between residue files and host system files"
 	exit 1
 }
 
@@ -43,41 +49,7 @@ where:
 # Adding a right-click option to an application does not guarantee the app will succesfully run in ResidueFree.
 enable_GUI()
 {
-DESKTOP_APPS=$(/usr/bin/find /usr/share/applications -name "*.desktop")
-
-RES_PATH="$(pwd)/residueFree.sh"
-
-for file in ${DESKTOP_APPS[@]}; do
-
-	#Only execute on apps without a residue free option
-	if /bin/grep -q "ResidueFree" $file; then
-		/bin/echo -n ''
-	else
-
-		#Get the name of the binary clicking on the app executes
-		exe=$(/bin/grep "Exec=" $file -m 1 | /usr/bin/cut -d"=" -f 2 | /usr/bin/cut -d'%' -f 1)
-
-		#Add Residue-Free to desktop actions, or make actions item
-		if /bin/grep -q "Actions=" $file; then
-			/bin/sed -i '/^Actions=/ s/$/ResidueFree;/' $file
-        	else
-			/bin/echo "Actions=ResidueFree;" >> $file
-        	fi
-
-		#Add Residue-Free Desktop Action
-		/bin/echo "" >> $file
-		/bin/echo "[Desktop Action ResidueFree]" >> $file
-       		/bin/echo "Name=Run in ResidueFree" >> $file
-        	/bin/echo "Exec=gnome-terminal -e \"bash -c 'sudo $RES_PATH -p $exe'\"" >> $file
-		
-		#Add junk then delete to refresh launcher
-		/bin/echo "reset" >> $file
-		/bin/sed -i '$ d' $file
-	fi
-done
-
-/bin/echo "GUI option will be enabled after system restart."
-/bin/echo "Note: The feature may be removed as apps update. Run enable_GUI.sh to re-enable."
+	$(pwd)/enable_GUI.sh
 }
 
 ### CLEANUP PROCESS. REDUNDANCIES IN PLACE TO ENSURE THIS RUNS
@@ -93,9 +65,10 @@ cleanup()
 
 #If user specified files to preserve, copy them to "residue files" folder on Desktop. Keep owners, remove timestamps
 if [ "$(/bin/ls -A $KEEP_DIR)" ]; then
-	/bin/mkdir /home/$SUDO_USER/Desktop/residue\ files 2>/dev/null;
+	/bin/mkdir -p $KEPT_DIR 2>/dev/null
 	/bin/cp -r --backup=numbered --preserve=ownership --no-preserve=timestamps \
-	$KEEP_DIR/* /home/$SUDO_USER/Desktop/residue\ files
+	$KEEP_DIR/* $KEPT_DIR
+	/usr/bin/chown $SUDO_UID:$SUDO_GID $KEPT_DIR 2>/dev/null
 fi
 
 
@@ -114,7 +87,6 @@ if [ $MODE == "PRIVACY" ] ; then
 #If forensic mode, change owner to user and remove execute bit on all files
 else
 	/bin/umount -lf $OUTPUT 2>/dev/null
-	/bin/chown -R $SUDO_UID:$SUDO_GID $OUTPUT
 	/usr/bin/find $OUTPUT -type f -exec /bin/chmod -x {} \;
 	
 	#Remove subdirectories w/o written files, unless -m used
@@ -123,16 +95,20 @@ else
 			/bin/rmdir $OUTPUT/$dir 2>/dev/null
 		done
 	fi
+
 	#If -z used, convert OUTPUT to a zip archive
 	if [ $ZIP == "TRUE" ] ; then
 		/usr/bin/zip -r $OUTPUT.zip $OUTPUT >/dev/null
 		/bin/rm -rf $OUTPUT 2>/dev/null
 		/bin/chown $SUDO_USER:$SUDO_USER $OUTPUT.zip
+	
+	#If -D not used, create a file with the diffs of all files in output
+	elif [ $DIFF == "TRUE" ]; then
+		/usr/bin/diff --recursive / $OUTPUT > $OUTPUT/diffs.txt
 	fi
+	
+	/bin/chown -R $SUDO_UID:$SUDO_GID $OUTPUT
 fi
-
-#Remove user_env
-/bin/rm -f $ENVFILE
 
 #Unmount and remove contents of all union directories
 for dir in ${DIRS[@]}; do
@@ -155,7 +131,7 @@ fi
 ### Restore daemons and system services ###
 
 # Runs in background to re-enable gnome state tracker after five minutes
-/bin/bash /home/$SUDO_USER/residuefree/restore_appstate.sh &
+/bin/bash $PWD/restore_appstate.sh &
 
 #Restore pulse configuration
 if [ $PULSE_CONF_EXISTS == "False" ]; then
@@ -209,7 +185,7 @@ exit 0
 #/dev is mounted RW to allow access to host i/o devices
 #/proc is created and maintained by docker to keep processes containerized
 #/mnt would create infinite file structure if mounted (potential feature addition working around union mounts).
-DIRS=("bin" "boot" "cdrom" "etc" "home" "lib" "lib64" "lost+found" "media" "opt" "root" "run" "sbin" \
+DIRS=("bin" "cdrom" "etc" "home" "lib" "lib64" "lost+found" "media" "opt" "root" "sbin" \
        	"srv" "sys" "tmp" "usr" "var" "snap")
 
 
@@ -217,10 +193,12 @@ MODE=NULL # FORENSIC or PRIVACY mode
 OUTPUT=$PWD/residue_free_cache_$(/bin/date +%m-%d-%Y_%H_%M) # Output of "residue" files (forensic mode)
 ZIP=FALSE # Zip output or leave as directory tree (forensic mode)
 MAINTAIN=FALSE # Keep empty high-level directories in cache output (forensic mode)
+DIFF=TRUE # Create one large file for diffs between residue files and host files.
 SIZE=2g # Size of tmpfs (privacy mode) - default 1 GB
 FIRST_RUN=FALSE # Track if this is install run or not
 REMOUNT=True # Check if main filesystem remounted with noatime option or not
-KEEP_DIR=/mnt/nhome/$SUDO_USER/KEEP_FILES # Directory for files the user wants to keep
+KEEP_DIR=/mnt/nhome/$SUDO_USER/KEEP_FILES # Directory for files in residueFree the user wants to keep
+KEPT_DIR=/home/$SUDO_USER/Documents #Directory where files the user wants to keep are put on their home system
 OS_VER=$(cat /etc/*release* | grep "VERSION_ID=" | cut -d '"' -f 2) # Ubuntu operating system version
 
 ## Run cleanup after recieving interrupt or kill signals
@@ -240,14 +218,14 @@ else
 	/usr/bin/apt-get install unionfs-fuse
 fi
 
-#Check for docker
+#Check for podman
 if command -v /usr/bin/podman >/dev/null 2>&1 ; then
 	/bin/echo -n ''
 else
 	/bin/echo "Podman not installed. Instalation required." 1>&2
 	/usr/bin/apt-get install podman
 
-	#Present option to enable Dockerd on boot for quicker ResidueFree launch times.
+	#Present option to enable Podman service on boot for quicker ResidueFree launch times.
 	/bin/echo ''
 	/bin/echo "Do you want to enable the Podman to start when your computer powers on?"
 	/bin/echo "This feature will let ResidueFree start much quicker the first time you run it after turning on your computer"
@@ -256,7 +234,7 @@ else
 	read -p "[Y/n]" yn
 	case $yn in
 		[Yy]* ) 
-			systemctl enable docker.service
+			systemctl enable podman.service
 			;;
 		* ) 
 			/bin/echo "Not enabling Docker daemon. To enable, type \"sudo systemctl enable docker.service\" into a terminal."
@@ -297,7 +275,7 @@ fi
 
 #COMMAND LINE ARGUMENT PARSING
 
-while getopts "fpo:zms:h" OPTION; do
+while getopts "fpo:zmDs:h" OPTION; do
 	case $OPTION in
 		f)
 			if [ $MODE == "PRIVACY" ] ; then 
@@ -320,6 +298,9 @@ while getopts "fpo:zms:h" OPTION; do
 			;;
 		z)
 			ZIP=TRUE
+			;;
+		D)
+			DIFF=FALSE
 			;;
 		m)
 			MAINTAIN=TRUE
@@ -358,8 +339,16 @@ if [ $MODE == "NULL" ]; then
 	MODE=PRIVACY
 fi
 
+if [ $MODE == "PRIVACY" ]; then
+	if [ $OUTPUT != $pwd/residue_free_cache* ]; then
+		KEPT_DIR=$OUTPUT
+	fi
+	/bin/echo "Privacy mode selected. All files will be deleted except those placed in $(echo $KEEP_DIR | sed 's/mnt\/n//'), which will be placed in $KEPT_DIR when ResidueFree exits."
+	OUTPUT="/mnt/cache"
+fi
+
 #If -p used with file format options, warn user output will be deleted
-if [ $MODE == "PRIVACY" ] && { [ $OUTPUT != "/mnt/cache" ] || [ $ZIP == "TRUE" ] || [ $MAINTAIN == "TRUE" ]; } ; then
+if [ $MODE == "PRIVACY" ] && { [ $OUTPUT != /mnt/cache ] || [ $ZIP == "TRUE" ] || [ $MAINTAIN == "TRUE" ]; } ; then
 	/bin/echo "WARNING: Privacy mode and output formating selected." 1>&2
 	/bin/echo "ALL OUTPUT WILL BE PERMANENTLY DELETED WHEN RESIDUE FREE EXITS" 1>&2
 	OUTPUT=/mnt/cache #Confirm that output goes to /mnt/cache
@@ -370,7 +359,7 @@ if [ $MODE == "FORENSIC" ] && [ $SIZE != "1g" ] ; then
 	/bin/echo "WARNING: Selected -s in forensic mode. Cache size only for privacy mode." 1>&2
 fi
 
-#Make sure OUTPUT is properly formated (full path string)
+#Make sure OUTPUT and KEPT_DIR is properly formated (full path string)
 if [[ $OUTPUT != /* ]] ; then
 	OUTPUT=$PWD/$OUTPUT
 fi
@@ -379,11 +368,18 @@ if [[ $OUTPUT == */ ]] ; then #(no trailing '/')
 	OUTPUT=${OUTPUT%?}
 fi
 
+if [[ $KEPT_DIR != /* ]] ; then
+	KEPT_DIR=$PWD/$OUTPUT
+fi
+
+if [[ $KEPT_DIR == */ ]] ; then #(no trailing '/')
+	KEPT_DIR=${OUTPUT%?}
+fi
+
 ## END USER-INPUT CHECKS ##
 
 
 ### BEGIN SYSTEM DAEMON WRANGLING ###
-# TODO: These daemons are based on Ubuntu 18.04 LTS - needs adjusting for other distributions
 
 ## Add residue file system directories to updatedb.conf so that mlocate doesn't store file names
 UPDATEDB_CONF="/etc/updatedb.conf"
@@ -399,9 +395,6 @@ if [[ -f "$UPDATEDB_CONF" ]]; then
 	#Get end of current configuration to append residue directories to and as a cut off point later.
 	PRUNE_LAST=$(/bin/echo -n $PRUNE_BK | /usr/bin/rev | /usr/bin/cut -d'/' -f 1 | /usr/bin/rev)
 	/bin/sed -i "/PRUNEPATHS/s/$PRUNE_LAST/$PRUNE_LAST$PRUNE_LIST/" $UPDATEDB_CONF
-
-else
-	echo "No updatedeb.conf"
 fi
 
 if [[ -d "/var/lib/mlocate" ]]; then
@@ -410,8 +403,6 @@ if [[ -d "/var/lib/mlocate" ]]; then
 	for file in /var/lib/mlocate/*; do
 		/bin/chmod 440 $file
 	done
-else
-	echo "No mlocate"
 fi
 
 ## Stop journaling and logging while ResiudeFree runs.
@@ -491,6 +482,8 @@ for dir in ${DIRS[@]}; do
 	/bin/chown --reference=/$dir /mnt/n$dir
 done
 
+/bin/mkdir $OUTPUT/boot 2>/dev/null
+
 ## Bind mount necessary sockets to enable writes to OS
  /bin/mount --rbind /tmp/.X11-unix/ /mnt/ntmp/.X11-unix/
  /bin/mount --rbind /tmp/.ICE-unix/ /mnt/ntmp/.ICE-unix/
@@ -529,7 +522,7 @@ if [ -f $PULSE_CONF ]; then
 		PULSE_AUTOSPAWN_EXISTS=True
 		if ! /bin/grep -q "autospawn = no" $PULSE_CONF; then
 			PULSE_CHANGE_AUTOSPAWN=$(/bin/grep autospawn $PULSE_CONF)
-			/bin/sed -i "s/$PULSE_CHANGE_AUTOSPAWN/autospawn = no/" $PULSE_CONF
+			# /bin/sed -i "s/$PULSE_CHANGE_AUTOSPAWN/autospawn = no/" $PULSE_CONF
 		fi
 	else
 		/bin/echo "autospawn = no" >> $PULSE_CONF
@@ -552,9 +545,9 @@ fi
 ### PREPARE DOCKER CONTAINER ###
 
 #Setup three shell scripts that will run to initialize residue free
-ENVFILE=/mnt/ntmp/user_env.sh
-DFILE=/mnt/ntmp/user_daemons.sh #Stored in tmpfs to ensure deletion
-CMDFILE=/mnt/ntmp/user_command.sh #Stored in tmpfs to ensure deletion
+ENVFILE=/mnt/nhome/user_env.sh
+DFILE=/mnt/nhome/user_daemons.sh #Stored in tmpfs to ensure deletion
+CMDFILE=/mnt/nhome/user_command.sh #Stored in tmpfs to ensure deletion
 SETUPFILE=/mnt/nroot/setup_commands.sh #Stored in tmpfs to ensure deletion
 
 #Copy user's environment variables into a script that will import them to residue free
@@ -567,7 +560,7 @@ SETUPFILE=/mnt/nroot/setup_commands.sh #Stored in tmpfs to ensure deletion
 /bin/echo "export $(grep 'PATH=' /etc/environment)" >> $ENVFILE
 #/bin/echo "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$SUDO_UID/bus" >> $ENVFILE
 
-/bin/echo "/bin/bash /tmp/user_daemons.sh" >> $ENVFILE
+/bin/echo "/bin/bash /home/user_daemons.sh" >> $ENVFILE
 /bin/sed -i '/-[fpozmsh]/d' $ENVFILE #Delete command line options added to the shell environment
 /bin/chmod +x $ENVFILE
 
@@ -575,7 +568,7 @@ SETUPFILE=/mnt/nroot/setup_commands.sh #Stored in tmpfs to ensure deletion
 /bin/echo "/usr/bin/gnome-keyring-daemon --daemonize --login >/dev/null 2>&1 &" >> $DFILE
 /bin/echo "/usr/bin/gnome-keyring-daemon --start --foreground --components=secrets >/dev/null 2>&1 &" >> $DFILE
 #/bin/echo "/usr/bin/pulseaudio --start --log-target=null" >> $DFILE
-/bin/echo "/bin/bash /tmp/user_command.sh" >> $DFILE
+/bin/echo "/bin/bash /home/user_command.sh" >> $DFILE
 
 #Launch user's command. Can't put at end of DFILE for processes started via GUI option
 /bin/echo "#!/bin/bash" >> $CMDFILE
@@ -590,7 +583,7 @@ SETUPFILE=/mnt/nroot/setup_commands.sh #Stored in tmpfs to ensure deletion
 
 /bin/echo "chown $SUDO_USER:$SUDO_USER /run/user/$SUDO_UID/" >> $SETUPFILE
 
-/bin/echo "/usr/bin/sudo -u $SUDO_USER /bin/bash /tmp/user_env.sh" >> $SETUPFILE
+/bin/echo "/usr/bin/sudo -u $SUDO_USER /bin/bash /home/user_env.sh" >> $SETUPFILE
 #/bin/echo "sleep 4 && systemctl status snapd" >> $SETUPFILE
 #/bin/echo "/bin/bash" >> $SETUPFILE
 
@@ -621,13 +614,17 @@ SETUPFILE=/mnt/nroot/setup_commands.sh #Stored in tmpfs to ensure deletion
 rm -rf /mnt/netc/acpi/
 
 
+
+
 find /mnt/netc/systemd/ -iname "*.service" -not -iname "snap*" -exec rm -f {} \;
+
+mkdir $OUTPUT/boot/efi
 
 
 ### RUN RESIDUEFREE ###
 
 # Launch a detached process that cleans up ResidueFree if it is killed
-/bin/bash /home/$SUDO_USER/residuefree/emergency_residue_cleanup.sh $$ $KEEP_DIR $MODE $OUTPUT $ENVFILE $JOURNAL_STORAGE &
+/bin/bash $PWD/emergency_residue_cleanup.sh $$ $KEEP_DIR $MODE $OUTPUT $ENVFILE $JOURNAL_STORAGE &
 CLEANUP_PID=$!
 
 #Run residue free docker container.
@@ -651,11 +648,11 @@ CLEANUP_PID=$!
 	--mount type=bind,source=/mnt/ntmp,target=/tmp \
 	--mount type=bind,source=/mnt/nsys,target=/sys \
 	--mount type=bind,source=/mnt/netc,target=/etc \
-	--tmpfs /boot/efi \
+	--mount type=bind,source=$OUTPUT/boot/efi,target=/boot/efi \
 	--mount type=bind,source=/run/user/1000/pulse/native,target=/run/user/1000/pulse/native \
 	--privileged \
 	--net=host \
-	ubuntu:22.04 /sbin/init #/usr/bin/sudo -u $SUDO_USER /bin/bash $ENVFILE
+	ubuntu:$OS_VER /sbin/init #/usr/bin/sudo -u $SUDO_USER /bin/bash $ENVFILE
 	#--sysctl net.ipv6.conf.all.disable_ipv6=0 \ # include in options to enable openVPN. Not working with Docker update.
 
 
