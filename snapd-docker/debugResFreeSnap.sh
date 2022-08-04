@@ -60,15 +60,15 @@ for file in ${DESKTOP_APPS[@]}; do
 		#Add Residue-Free to desktop actions, or make actions item
 		if /bin/grep -q "Actions=" $file; then
 			/bin/sed -i '/^Actions=/ s/$/ResidueFree;/' $file
-        else
+        	else
 			/bin/echo "Actions=ResidueFree;" >> $file
-        fi
+        	fi
 
 		#Add Residue-Free Desktop Action
 		/bin/echo "" >> $file
 		/bin/echo "[Desktop Action ResidueFree]" >> $file
-       	/bin/echo "Name=Run in ResidueFree" >> $file
-        /bin/echo "Exec=gnome-terminal -e \"bash -c 'sudo $RES_PATH -p $exe'\"" >> $file
+       		/bin/echo "Name=Run in ResidueFree" >> $file
+        	/bin/echo "Exec=gnome-terminal -e \"bash -c 'sudo $RES_PATH -p $exe'\"" >> $file
 		
 		#Add junk then delete to refresh launcher
 		/bin/echo "reset" >> $file
@@ -141,12 +141,16 @@ for dir in ${DIRS[@]}; do
 done
 
 #Restore updatedb.conf to no longer include ResidueFree directories
-/bin/sed -i "/PRUNEPATHS/s/$PRUNE_LAST /$PRUNE_LAST\"\n/" $UPDATEDB_CONF && /bin/sed -i "/\/mnt\/nbin \/mnt\/n/d" $UPDATEDB_CONF
+if [ -f "$UPDATEDB_CONF" ]; then
+	/bin/sed -i "/PRUNEPATHS/s/$PRUNE_LAST /$PRUNE_LAST\"\n/" $UPDATEDB_CONF && /bin/sed -i "/\/mnt\/nbin \/mnt\/n/d" $UPDATEDB_CONF
+fi
 
 #Restore write access to mlocate files
-for file in /var/lib/mlocate/*; do
-	/bin/chmod 660 $file
-done
+if [ -d "/var/lib/mlocate" ]; then
+	for file in /var/lib/mlocate/*; do
+		/bin/chmod 660 $file
+	done
+fi
 
 ### Restore daemons and system services ###
 
@@ -167,9 +171,9 @@ else
 fi
 
 ## Restart user daemons
-/bin/su -c "/usr/bin/pulseaudio --start --log-target=syslog" $SUDO_USER
-/bin/su -c "/usr/bin/gnome-keyring-daemon --daemonize --login &" $SUDO_USER
-/bin/su -c "/usr/bin/gnome-keyring-daemon --start --foreground --components=secrets &" $SUDO_USER
+#/bin/su -c "/usr/bin/pulseaudio --start --log-target=syslog" $SUDO_USER
+#/bin/su -c "/usr/bin/gnome-keyring-daemon --daemonize --login &" $SUDO_USER
+#/bin/su -c "/usr/bin/gnome-keyring-daemon --start --foreground --components=secrets &" $SUDO_USER
 
 ## Revert and restart system daemons
 
@@ -237,15 +241,15 @@ else
 fi
 
 #Check for docker
-if command -v /usr/bin/docker >/dev/null 2>&1 ; then
+if command -v /usr/bin/podman >/dev/null 2>&1 ; then
 	/bin/echo -n ''
 else
-	/bin/echo "docker not installed. Instalation required." 1>&2
-	/usr/bin/apt-get install docker.io
+	/bin/echo "Podman not installed. Instalation required." 1>&2
+	/usr/bin/apt-get install podman
 
 	#Present option to enable Dockerd on boot for quicker ResidueFree launch times.
 	/bin/echo ''
-	/bin/echo "Do you want to enable the Docker daemon to start when your computer powers on?"
+	/bin/echo "Do you want to enable the Podman to start when your computer powers on?"
 	/bin/echo "This feature will let ResidueFree start much quicker the first time you run it after turning on your computer"
 	/bin/echo "NOTE: This is not normally enabled on desktop computers. Turning this on may make it more obvious you're using ResidueFree."
 
