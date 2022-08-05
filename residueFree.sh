@@ -340,7 +340,7 @@ if [ $MODE == "NULL" ]; then
 fi
 
 if [ $MODE == "PRIVACY" ]; then
-	if [ $OUTPUT != $pwd/residue_free_cache* ]; then
+	if [[ $OUTPUT != *residue_free_cache* ]]; then
 		KEPT_DIR=$OUTPUT
 	fi
 	/bin/echo "Privacy mode selected. All files will be deleted except those placed in $(echo $KEEP_DIR | sed 's/mnt\/n//'), which will be placed in $KEPT_DIR when ResidueFree exits."
@@ -369,11 +369,11 @@ if [[ $OUTPUT == */ ]] ; then #(no trailing '/')
 fi
 
 if [[ $KEPT_DIR != /* ]] ; then
-	KEPT_DIR=$PWD/$OUTPUT
+	KEPT_DIR=$PWD/$KEPT_DIR
 fi
 
 if [[ $KEPT_DIR == */ ]] ; then #(no trailing '/')
-	KEPT_DIR=${OUTPUT%?}
+	KEPT_DIR=${KEPT_DIR%?}
 fi
 
 ## END USER-INPUT CHECKS ##
@@ -487,15 +487,6 @@ done
 ## Bind mount necessary sockets to enable writes to OS
  /bin/mount --rbind /tmp/.X11-unix/ /mnt/ntmp/.X11-unix/
  /bin/mount --rbind /tmp/.ICE-unix/ /mnt/ntmp/.ICE-unix/
-# /bin/mount --rbind /run/lock /mnt/nrun/lock
-# /bin/mount --rbind /run/dbus /mnt/nrun/dbus
-# /bin/mount --rbind /run/dbus/system_bus_socket /mnt/nrun/dbus/system_bus_socket
-# /bin/mount --rbind /run/user/$SUDO_UID/at-spi/bus /mnt/nrun/user/$SUDO_UID/at-spi/bus
-# /bin/mount --rbind /run/user/$SUDO_UID /mnt/nrun/user/$SUDO_UID
-# /bin/mount --rbind /run/user/$SUDO_UID/bus /mnt/nrun/user/$SUDO_UID/bus
-# /bin/mount --rbind /run/snapd.socket /mnt/nrun/snapd.socket
-# /bin/mount --rbind /run/snapd-snap.socket /mnt/nrun/snapd-snap.socket
-# /bin/chown -R $SUDO_UID:$SUDO_GID /mnt/nrun/user/$SUDO_UID 2>/dev/null
  /bin/chown -R $SUDO_UID:$SUDO_GID /mnt/nhome/$SUDO_USER/.cache/dconf
 
  
@@ -530,6 +521,8 @@ if [ -f $PULSE_CONF ]; then
 else
 	/bin/echo "autospawn = no" > $PULSE_CONF
 fi
+
+/bin/su -c "/usr/bin/pulseaudio --start" $SUDO_USER
 
 #Kill user daemons that write to files (keyring and pulseaudio)
 #/bin/su -c "/usr/bin/pulseaudio --kill" $SUDO_USER
@@ -567,54 +560,21 @@ SETUPFILE=/mnt/nroot/setup_commands.sh #Stored in tmpfs to ensure deletion
 #Launch user daemons inside residueFree
 /bin/echo "/usr/bin/gnome-keyring-daemon --daemonize --login >/dev/null 2>&1 &" >> $DFILE
 /bin/echo "/usr/bin/gnome-keyring-daemon --start --foreground --components=secrets >/dev/null 2>&1 &" >> $DFILE
-#/bin/echo "/usr/bin/pulseaudio --start --log-target=null" >> $DFILE
 /bin/echo "/bin/bash /home/user_command.sh" >> $DFILE
 
 #Launch user's command. Can't put at end of DFILE for processes started via GUI option
 /bin/echo "#!/bin/bash" >> $CMDFILE
 /bin/echo "$CMD" >> $CMDFILE
 
-#Commands to run as root once continer is launched and stable
-# /bin/echo "snap install core --edge" >> $SETUPFILE
-# /bin/echo "systemctl start snapd" >> $SETUPFILE
-
+#Commands to run as root 
 /bin/echo "/bin/mount -t securityfs securityfs /sys/kernel/security" >> $SETUPFILE #Trick snap into thinking AppArmor installed
-#/bin/echo "mount -a" >> $SETUPFILE
-
-/bin/echo "chown $SUDO_USER:$SUDO_USER /run/user/$SUDO_UID/" >> $SETUPFILE
-
+/bin/echo "/usr/bin/chown -R $SUDO_UID:$SUDO_GID /run/user/$SUDO_UID" >> $SETUPFILE
 /bin/echo "/usr/bin/sudo -u $SUDO_USER /bin/bash /home/user_env.sh" >> $SETUPFILE
-#/bin/echo "sleep 4 && systemctl status snapd" >> $SETUPFILE
-#/bin/echo "/bin/bash" >> $SETUPFILE
 
 ### END CONTAINER PREP
 
-
-# find /mnt/netc/systemd/system/ -not -iname "snap*" -exec rm -f {} \; 2>/dev/null
-
-#/home/user/ResidueFree/snapd-docker/run-residue.sh acpi
-
-#dirs=$(find /etc/ -maxdepth 1 -not -type d | cut -d '/' -f 3 2>/dev/null)
-#for d in $dirs; do 
-#	echo $d
-#	/home/user/ResidueFree/snapd-docker/run-residue.sh $d
-#	podman rm -f residue
-#	echo ''
-#	echo ''
-#done
-
-#rm -f /mnt/netc/fstab
-
-#echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" > /mnt/netc/fstab
-#echo "UUID=5ef49843-57bc-4760-8237-c81f47533419 /snap/               ext4    defaults" >> /mnt/netc/fstab
-
-#sed -i '1,11!d' /mnt/netc/fstab #Keeping 1-11 has same behavior as keeping fstab. Removing 10 and 11 (i.e. boot) lets snapd run, but causes errors with libre.
-#sed -i 's/\/boot\/efi/\/tmp/' /mnt/netc/fstab #Using has same behavior as normal
-
+# Remove files that mess with container systemd launch and create directory for boot mount
 rm -rf /mnt/netc/acpi/
-
-
-
 
 find /mnt/netc/systemd/ -iname "*.service" -not -iname "snap*" -exec rm -f {} \;
 
@@ -652,33 +612,9 @@ CLEANUP_PID=$!
 	--mount type=bind,source=/run/user/1000/pulse/native,target=/run/user/1000/pulse/native \
 	--privileged \
 	--net=host \
-	ubuntu:$OS_VER /sbin/init #/usr/bin/sudo -u $SUDO_USER /bin/bash $ENVFILE
+	ubuntu:$OS_VER /sbin/init 
 	#--sysctl net.ipv6.conf.all.disable_ipv6=0 \ # include in options to enable openVPN. Not working with Docker update.
 
-
-	#--tmpfs /boot/efi \
-	#--mount type=bind,source=/mnt/nboot,target=/boot \
-	
-	#--mount type=bind,source=/mnt/netc,target=/etc \
-	# y11y
-	#--mount type=bind,source=/mnt/netc/systemd/system,target=/etc/systemd/system \
-	#--mount type=bind,source=/mnt/netc/systemd/user,target=/etc/systemd/user \
-	#--mount type=bind,source=/mnt/netc/pulse,target=/etc/pulse \
-	#--mount type=bind,source=/mnt/netc/sudo.conf,target=/etc/sudo.conf \
-	#--mount type=bind,source=/mnt/netc/sudoers,target=/etc/sudoers \
-	#--mount type=bind,source=/mnt/netc/nsswitch.conf,target=/etc/nsswitch.conf \
-	#--mount type=bind,source=/mnt/netc/ld.so.cache,target=/etc/ld.so.cache \
-	#--mount type=bind,source=/mnt/netc/passwd,target=/etc/passwd \
-	#--mount type=bind,source=/mnt/netc/gtk-3.0,target=/etc/gtk-3.0 \
-	#--mount type=bind,source=/mnt/netc/xdg,target=/etc/xdg \
-	#--mount type=bind,source=/mnt/netc/libreoffice,target=/etc/libreoffice \
-	
-
-	#--mount type=bind,source=/mnt/nrun,target=/run \
-	#--mount type=bind,source=/mnt/nrun/user/$SUDO_UID,target=/run/user/$SUDO_UID \
-	#--mount type=bind,source=/mnt/nrun/dbus,target=/run/dbus \
-	#--mount type=bind,source=/mnt/nrun/user/$SUDO_UID/bus,target=/run/user/$SUDO_UID/bus \
-	#--mount type=bind,source=/mnt/nrun/lock,target=/run/lock \
 
 /usr/bin/podman exec -it residue /bin/bash /root/setup_commands.sh
 
