@@ -8,6 +8,14 @@ We are releasing ResidueFree as open-source code for researchers who wish to dup
 
 However, there is also room for more significant improvements, like using lower-level namespaces and containerization features instead of Docker, supproting MacOS implementations, and - through more substantive effort - supporting Windows. We are also including some code from early in the development process before we used Docker for containerization. While we aim to work on these improvements as we are able, we look forward to any contributions the communtiy provides.
 
+
+## August 2022 Update
+As ResidueFree grows to expand more operating systems, separate branches for different OSs are being created for test and development until they can be nicely placed into a single branch with a more intuitive installation process. 
+
+Main branch will try to support the most recent Ubuntu LTS, currently 22.04.
+
+The updates for Ubuntu 22.04 also include support for snap packages!! In short, ResidueFree now runs init / sytstemd at startup which, combined, with some other trickery, lets snapd run cleanly. This comes at the cost of startup time for snap packages and anything else that's waiting for systemd services to start 
+
 ### Run ResidueFree
 Clone this repository, enter the "residuefree" directory, set the scripts to executable using `chmod +x` and run `sudo ./residueFree.sh -p` to launch a bash shell running inside ResidueFree. Full installation and command-line options are shown using the `-h` flag.
 
