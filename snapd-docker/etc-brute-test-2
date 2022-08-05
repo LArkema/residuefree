@@ -1,0 +1,422 @@
+ld.so.conf.d
+d28bd65a4c014104d6ea61a343f44e28b8aa9bbd32df06dacca5fd50d3971222
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:53:26 UTC; 597ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 185 (snapd)[m
+      Tasks: 7 (limit: 307)[m
+     Memory: 24.7M[m
+        CPU: 152ms[m
+     CGroup: /system.slice/snapd.service[m
+             ├─185 /usr/lib/snapd/snapd[m
+             └─316 systemd-detect-virt[m
+[m
+Jul 31 21:53:26 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:53:27 resfree-dev snapd[185]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>d28bd65a4c014104d6ea61a343f44e28b8aa9bbd32df06dacca5fd50d3971222
+
+
+fwupd
+d0b82ed79fa646cbc37e4ae664c61ae30eb229de8e1e8e1bb8aa347427a269ca
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:53:32 UTC; 490ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 185 (snapd)[m
+      Tasks: 8 (limit: 307)[m
+     Memory: 19.5M[m
+        CPU: 105ms[m
+     CGroup: /system.slice/snapd.service[m
+             ├─185 /usr/lib/snapd/snapd[m
+             └─289 /usr/sbin/apparmor_parser --preprocess[m
+[m
+Jul 31 21:53:32 resfree-dev systemd[1]: Starting Snap Daemon...[m
+[K[?1l>d0b82ed79fa646cbc37e4ae664c61ae30eb229de8e1e8e1bb8aa347427a269ca
+
+
+chatscripts
+6d13e90350cd730b596b78eb9efe7b5178d86f3e00bda279e31965eac1d51efc
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:53:37 UTC; 750ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 188 (snapd)[m
+      Tasks: 1 (limit: 307)[m
+     Memory: 7.9M[m
+        CPU: 215ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─188 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:53:37 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:53:38 resfree-dev snapd[188]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>6d13e90350cd730b596b78eb9efe7b5178d86f3e00bda279e31965eac1d51efc
+
+
+glvnd
+a5f8010c5226c255dcda9756c5c2b9276d371b281d7516a14f46dd2b98321dea
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:53:43 UTC; 680ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 184 (snapd)[m
+      Tasks: 7 (limit: 307)[m
+     Memory: 13.4M[m
+        CPU: 169ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─184 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:53:43 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:53:43 resfree-dev snapd[184]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>a5f8010c5226c255dcda9756c5c2b9276d371b281d7516a14f46dd2b98321dea
+
+
+modules-load.d
+2f682f8cff7ab561f56858435e491708a70ea32b254c00cdb885845628cf8f52
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:53:48 UTC; 541ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 185 (snapd)[m
+      Tasks: 8 (limit: 307)[m
+     Memory: 24.9M[m
+        CPU: 130ms[m
+     CGroup: /system.slice/snapd.service[m
+             ├─185 /usr/lib/snapd/snapd[m
+             └─312 systemd-detect-virt[m
+[m
+Jul 31 21:53:48 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:53:49 resfree-dev snapd[185]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>2f682f8cff7ab561f56858435e491708a70ea32b254c00cdb885845628cf8f52
+
+
+keyutils
+a724eaa220984c3991853e73d8d9c224d0ec85d86f435b17073b73512c0b92e7
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:53:53 UTC; 851ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 187 (snapd)[m
+      Tasks: 1 (limit: 307)[m
+     Memory: 15.0M[m
+        CPU: 210ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─187 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:53:53 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:53:54 resfree-dev snapd[187]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>a724eaa220984c3991853e73d8d9c224d0ec85d86f435b17073b73512c0b92e7
+
+
+xdg
+
+
+xml
+9a10e9f8d9aab4be6cab70d5c78bf8b5b85c100d86b256a150217525e750e42e
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:53:59 UTC; 711ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 188 (snapd)[m
+      Tasks: 1 (limit: 307)[m
+     Memory: 9.1M[m
+        CPU: 210ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─188 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:53:59 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:53:59 resfree-dev snapd[188]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>9a10e9f8d9aab4be6cab70d5c78bf8b5b85c100d86b256a150217525e750e42e
+
+
+default
+1a2fcd3892fcb8db730bc11788d113e6106422720cf995c43d3bc200ac3d8de6
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:54:05 UTC; 758ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 212 (snapd)[m
+      Tasks: 1 (limit: 307)[m
+     Memory: 12.2M[m
+        CPU: 178ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─212 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:54:05 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:54:05 resfree-dev snapd[212]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>1a2fcd3892fcb8db730bc11788d113e6106422720cf995c43d3bc200ac3d8de6
+
+
+iproute2
+23c39203c160f2646be938b4022b57690fc349a7df3bfecf68c30580fe11f2ea
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:54:10 UTC; 624ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 188 (snapd)[m
+      Tasks: 8 (limit: 307)[m
+     Memory: 23.6M[m
+        CPU: 151ms[m
+     CGroup: /system.slice/snapd.service[m
+             ├─188 /usr/lib/snapd/snapd[m
+             └─322 systemd-detect-virt[m
+[m
+Jul 31 21:54:10 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:54:11 resfree-dev snapd[188]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>23c39203c160f2646be938b4022b57690fc349a7df3bfecf68c30580fe11f2ea
+
+
+ssl
+ecfb598cc06f979170249f83cc356baa7bb9e05f1dcd19f5f5196118cf5635df
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:54:16 UTC; 741ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 188 (snapd)[m
+      Tasks: 1 (limit: 307)[m
+     Memory: 8.8M[m
+        CPU: 213ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─188 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:54:16 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:54:16 resfree-dev snapd[188]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>ecfb598cc06f979170249f83cc356baa7bb9e05f1dcd19f5f5196118cf5635df
+
+
+apport
+10b324948029947cac631c0874d835d6815b49099d15e00f1af9dbd05f2e6f5e
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:54:21 UTC; 615ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 185 (snapd)[m
+      Tasks: 9 (limit: 307)[m
+     Memory: 23.7M[m
+        CPU: 154ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─185 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:54:21 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:54:22 resfree-dev snapd[185]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>10b324948029947cac631c0874d835d6815b49099d15e00f1af9dbd05f2e6f5e
+
+
+usb_modeswitch.d
+05356ee0fbe9c05665a650934f1b7f1889b354c39fd6e0d39818b4a46df1bcc9
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:54:27 UTC; 429ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 184 (snapd)[m
+      Tasks: 8 (limit: 307)[m
+     Memory: 19.8M[m
+        CPU: 86ms[m
+     CGroup: /system.slice/snapd.service[m
+             ├─184 /usr/lib/snapd/snapd[m
+             └─293 /usr/sbin/apparmor_parser --preprocess[m
+[m
+Jul 31 21:54:27 resfree-dev systemd[1]: Starting Snap Daemon...[m
+[K[?1l>05356ee0fbe9c05665a650934f1b7f1889b354c39fd6e0d39818b4a46df1bcc9
+
+
+cni
+71c0f14c561e4872cd3cb752e44ba873cca729b2e6989aca578fe70d06af5690
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:54:32 UTC; 524ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 186 (snapd)[m
+      Tasks: 7 (limit: 307)[m
+     Memory: 19.4M[m
+        CPU: 80ms[m
+     CGroup: /system.slice/snapd.service[m
+             ├─186 /usr/lib/snapd/snapd[m
+             └─299 /usr/sbin/apparmor_parser --preprocess[m
+[m
+Jul 31 21:54:32 resfree-dev systemd[1]: Starting Snap Daemon...[m
+[K[?1l>71c0f14c561e4872cd3cb752e44ba873cca729b2e6989aca578fe70d06af5690
+
+
+cups
+902e1da77cbcf906d64f0736bf72c390c5d9bfd9812237077bbe437a1d912492
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:54:38 UTC; 626ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 188 (snapd)[m
+      Tasks: 8 (limit: 307)[m
+     Memory: 23.9M[m
+        CPU: 149ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─188 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:54:38 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:54:38 resfree-dev snapd[188]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>902e1da77cbcf906d64f0736bf72c390c5d9bfd9812237077bbe437a1d912492
+
+
+openvpn
+69abdd66ca06311f8794b03e2c3a4183f72178bd67e3511c7072fe12665de60b
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:54:43 UTC; 623ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 191 (snapd)[m
+      Tasks: 8 (limit: 307)[m
+     Memory: 21.0M[m
+        CPU: 139ms[m
+     CGroup: /system.slice/snapd.service[m
+             ├─191 /usr/lib/snapd/snapd[m
+             └─317 systemctl --version[m
+[m
+Jul 31 21:54:43 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:54:44 resfree-dev snapd[191]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>69abdd66ca06311f8794b03e2c3a4183f72178bd67e3511c7072fe12665de60b
+
+
+udisks2
+a0d17285d203cdae328215cf71755ce6cadff0f3cf1a9f6b0eb9cd47219bc115
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:54:49 UTC; 865ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 185 (snapd)[m
+      Tasks: 1 (limit: 307)[m
+     Memory: 16.7M[m
+        CPU: 197ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─185 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:54:49 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:54:49 resfree-dev snapd[185]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>a0d17285d203cdae328215cf71755ce6cadff0f3cf1a9f6b0eb9cd47219bc115
+
+
+netplan
+61763673f027188615e79640086323e020b177cfa4e0a5f1d4423a9b783bdd1b
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:54:54 UTC; 763ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 190 (snapd)[m
+      Tasks: 1 (limit: 307)[m
+     Memory: 10.8M[m
+        CPU: 207ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─190 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:54:54 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:54:55 resfree-dev snapd[190]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>61763673f027188615e79640086323e020b177cfa4e0a5f1d4423a9b783bdd1b
+
+
+environment.d
+7987d8187567c3c2e540be292d9b09f086755c4831395486b080a3aa40e6275d
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:55:00 UTC; 662ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 186 (snapd)[m
+      Tasks: 11 (limit: 307)[m
+     Memory: 17.9M[m
+        CPU: 221ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─186 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:55:00 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:55:00 resfree-dev snapd[186]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>7987d8187567c3c2e540be292d9b09f086755c4831395486b080a3aa40e6275d
+
+
+alternatives
+aebc83f04187ae5e8352a9bf7f93a54bb926e6072e450cd8dac3d1424ffd6afb
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:55:06 UTC; 532ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 190 (snapd)[m
+      Tasks: 8 (limit: 307)[m
+     Memory: 20.4M[m
+        CPU: 93ms[m
+     CGroup: /system.slice/snapd.service[m
+             ├─190 /usr/lib/snapd/snapd[m
+             └─301 /usr/sbin/apparmor_parser --preprocess[m
+[m
+Jul 31 21:55:06 resfree-dev systemd[1]: Starting Snap Daemon...[m
+[K[?1l>aebc83f04187ae5e8352a9bf7f93a54bb926e6072e450cd8dac3d1424ffd6afb
+
+
+gdm3
+e57800d8417fbd291611fa7adaeece9869e517137f99bbd99383d2cc895c843f
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:55:11 UTC; 573ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 185 (snapd)[m
+      Tasks: 8 (limit: 307)[m
+     Memory: 24.3M[m
+        CPU: 149ms[m
+     CGroup: /system.slice/snapd.service[m
+             ├─185 /usr/lib/snapd/snapd[m
+             └─301 systemctl --version[m
+[m
+Jul 31 21:55:11 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:55:11 resfree-dev snapd[185]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>e57800d8417fbd291611fa7adaeece9869e517137f99bbd99383d2cc895c843f
+
+
+UPower
+f73516066f3c7b3d364d4f2a4d36d86ae629d6eb24c67787d4e3bd6811b3c464
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:55:16 UTC; 729ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 188 (snapd)[m
+      Tasks: 1 (limit: 307)[m
+     Memory: 8.8M[m
+        CPU: 210ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─188 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:55:16 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:55:17 resfree-dev snapd[188]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>f73516066f3c7b3d364d4f2a4d36d86ae629d6eb24c67787d4e3bd6811b3c464
+
+
+cron.monthly
+98b62bebd955c0c63c09c3af8072c2c176ab55579ba13137129ae1a32f35847e
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:55:22 UTC; 822ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 190 (snapd)[m
+      Tasks: 1 (limit: 307)[m
+     Memory: 14.0M[m
+        CPU: 193ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─190 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:55:22 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:55:22 resfree-dev snapd[190]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>98b62bebd955c0c63c09c3af8072c2c176ab55579ba13137129ae1a32f35847e
+
+
+libpaper.d
+8ac84e9ce9fcf06cb5d1344bdc5a7131a4ac10a4cae3b9a75f724e3217dfe680
+[?1h=● snapd.service - Snap Daemon[m
+     Loaded: loaded (/lib/systemd/system/snapd.service; enabled; vendor preset: enabled)[m
+     Active: activating (start) since Sun 2022-07-31 21:55:27 UTC; 555ms ago[m
+TriggeredBy: [0;1;32m●[0m snapd.socket[m
+   Main PID: 185 (snapd)[m
+      Tasks: 8 (limit: 307)[m
+     Memory: 23.8M[m
+        CPU: 137ms[m
+     CGroup: /system.slice/snapd.service[m
+             └─185 /usr/lib/snapd/snapd[m
+[m
+Jul 31 21:55:27 resfree-dev systemd[1]: Starting Snap Daemon...[m
+Jul 31 21:55:28 resfree-dev snapd[185]: AppArmor status: apparmor is enabled and all features are available[m
+[K[?1l>8ac84e9ce9fcf06cb5d1344bdc5a7131a4ac10a4cae3b9a75f724e3217dfe680
+
+

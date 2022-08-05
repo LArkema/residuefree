@@ -60,15 +60,15 @@ for file in ${DESKTOP_APPS[@]}; do
 		#Add Residue-Free to desktop actions, or make actions item
 		if /bin/grep -q "Actions=" $file; then
 			/bin/sed -i '/^Actions=/ s/$/ResidueFree;/' $file
-        else
+        	else
 			/bin/echo "Actions=ResidueFree;" >> $file
-        fi
+        	fi
 
 		#Add Residue-Free Desktop Action
 		/bin/echo "" >> $file
 		/bin/echo "[Desktop Action ResidueFree]" >> $file
-       	/bin/echo "Name=Run in ResidueFree" >> $file
-        /bin/echo "Exec=gnome-terminal -e \"bash -c 'sudo $RES_PATH -p $exe'\"" >> $file
+       		/bin/echo "Name=Run in ResidueFree" >> $file
+        	/bin/echo "Exec=gnome-terminal -e \"bash -c 'sudo $RES_PATH -p $exe'\"" >> $file
 		
 		#Add junk then delete to refresh launcher
 		/bin/echo "reset" >> $file
@@ -88,8 +88,8 @@ cleanup()
 /bin/kill -SIGUSR1 $CLEANUP_PID 2>/dev/null
 
 #Stop and remove container (in case docker run fails)
-/usr/bin/docker stop residue >/dev/null 2>&1
-/usr/bin/docker rm residue >/dev/null 2>&1
+/usr/bin/podman stop residue >/dev/null 2>&1
+/usr/bin/podman rm -f residue >/dev/null 2>&1
 
 #If user specified files to preserve, copy them to "residue files" folder on Desktop. Keep owners, remove timestamps
 if [ "$(/bin/ls -A $KEEP_DIR)" ]; then
@@ -141,12 +141,16 @@ for dir in ${DIRS[@]}; do
 done
 
 #Restore updatedb.conf to no longer include ResidueFree directories
-/bin/sed -i "/PRUNEPATHS/s/$PRUNE_LAST /$PRUNE_LAST\"\n/" $UPDATEDB_CONF && /bin/sed -i "/\/mnt\/nbin \/mnt\/n/d" $UPDATEDB_CONF
+if [ -f "$UPDATEDB_CONF" ]; then
+	/bin/sed -i "/PRUNEPATHS/s/$PRUNE_LAST /$PRUNE_LAST\"\n/" $UPDATEDB_CONF && /bin/sed -i "/\/mnt\/nbin \/mnt\/n/d" $UPDATEDB_CONF
+fi
 
 #Restore write access to mlocate files
-for file in /var/lib/mlocate/*; do
-	/bin/chmod 660 $file
-done
+if [ -d "/var/lib/mlocate" ]; then
+	for file in /var/lib/mlocate/*; do
+		/bin/chmod 660 $file
+	done
+fi
 
 ### Restore daemons and system services ###
 
@@ -167,9 +171,9 @@ else
 fi
 
 ## Restart user daemons
-/bin/su -c "/usr/bin/pulseaudio --start --log-target=syslog" $SUDO_USER
-/bin/su -c "/usr/bin/gnome-keyring-daemon --daemonize --login &" $SUDO_USER
-/bin/su -c "/usr/bin/gnome-keyring-daemon --start --foreground --components=secrets &" $SUDO_USER
+#/bin/su -c "/usr/bin/pulseaudio --start --log-target=syslog" $SUDO_USER
+#/bin/su -c "/usr/bin/gnome-keyring-daemon --daemonize --login &" $SUDO_USER
+#/bin/su -c "/usr/bin/gnome-keyring-daemon --start --foreground --components=secrets &" $SUDO_USER
 
 ## Revert and restart system daemons
 
@@ -206,14 +210,14 @@ exit 0
 #/proc is created and maintained by docker to keep processes containerized
 #/mnt would create infinite file structure if mounted (potential feature addition working around union mounts).
 DIRS=("bin" "boot" "cdrom" "etc" "home" "lib" "lib64" "lost+found" "media" "opt" "root" "run" "sbin" \
-       	"srv" "sys" "tmp" "usr" "var")
+       	"srv" "sys" "tmp" "usr" "var" "snap")
 
 
 MODE=NULL # FORENSIC or PRIVACY mode
 OUTPUT=$PWD/residue_free_cache_$(/bin/date +%m-%d-%Y_%H_%M) # Output of "residue" files (forensic mode)
 ZIP=FALSE # Zip output or leave as directory tree (forensic mode)
 MAINTAIN=FALSE # Keep empty high-level directories in cache output (forensic mode)
-SIZE=1g # Size of tmpfs (privacy mode) - default 1 GB
+SIZE=2g # Size of tmpfs (privacy mode) - default 1 GB
 FIRST_RUN=FALSE # Track if this is install run or not
 REMOUNT=True # Check if main filesystem remounted with noatime option or not
 KEEP_DIR=/mnt/nhome/$SUDO_USER/KEEP_FILES # Directory for files the user wants to keep
@@ -237,15 +241,15 @@ else
 fi
 
 #Check for docker
-if command -v /usr/bin/docker >/dev/null 2>&1 ; then
+if command -v /usr/bin/podman >/dev/null 2>&1 ; then
 	/bin/echo -n ''
 else
-	/bin/echo "docker not installed. Instalation required." 1>&2
-	/usr/bin/apt-get install docker.io
+	/bin/echo "Podman not installed. Instalation required." 1>&2
+	/usr/bin/apt-get install podman
 
 	#Present option to enable Dockerd on boot for quicker ResidueFree launch times.
 	/bin/echo ''
-	/bin/echo "Do you want to enable the Docker daemon to start when your computer powers on?"
+	/bin/echo "Do you want to enable the Podman to start when your computer powers on?"
 	/bin/echo "This feature will let ResidueFree start much quicker the first time you run it after turning on your computer"
 	/bin/echo "NOTE: This is not normally enabled on desktop computers. Turning this on may make it more obvious you're using ResidueFree."
 
@@ -383,22 +387,32 @@ fi
 
 ## Add residue file system directories to updatedb.conf so that mlocate doesn't store file names
 UPDATEDB_CONF="/etc/updatedb.conf"
-PRUNE_BK=$(/bin/grep "PRUNEPATHS" $UPDATEDB_CONF | /usr/bin/cut -d'=' -f2 | /usr/bin/cut -d'"' -f 2)
 
-PRUNE_LIST=''
-for dir in ${DIRS[*]}; do
-	PRUNE_LIST=$PRUNE_LIST" \/mnt\/n$dir"
-done
+if [[ -f "$UPDATEDB_CONF" ]]; then
+	PRUNE_BK=$(/bin/grep "PRUNEPATHS" $UPDATEDB_CONF | /usr/bin/cut -d'=' -f2 | /usr/bin/cut -d'"' -f 2)
 
-#Get end of current configuration to append residue directories to and as a cut off point later.
-PRUNE_LAST=$(/bin/echo -n $PRUNE_BK | /usr/bin/rev | /usr/bin/cut -d'/' -f 1 | /usr/bin/rev)
-/bin/sed -i "/PRUNEPATHS/s/$PRUNE_LAST/$PRUNE_LAST$PRUNE_LIST/" $UPDATEDB_CONF
+	PRUNE_LIST=''
+	for dir in ${DIRS[*]}; do
+		PRUNE_LIST=$PRUNE_LIST" \/mnt\/n$dir"
+	done
 
+	#Get end of current configuration to append residue directories to and as a cut off point later.
+	PRUNE_LAST=$(/bin/echo -n $PRUNE_BK | /usr/bin/rev | /usr/bin/cut -d'/' -f 1 | /usr/bin/rev)
+	/bin/sed -i "/PRUNEPATHS/s/$PRUNE_LAST/$PRUNE_LAST$PRUNE_LIST/" $UPDATEDB_CONF
 
-#And remove write perms from mlocate.db files
-for file in /var/lib/mlocate/*; do
-	/bin/chmod 440 $file
-done
+else
+	echo "No updatedeb.conf"
+fi
+
+if [[ -d "/var/lib/mlocate" ]]; then
+
+	#And remove write perms from mlocate.db files
+	for file in /var/lib/mlocate/*; do
+		/bin/chmod 440 $file
+	done
+else
+	echo "No mlocate"
+fi
 
 ## Stop journaling and logging while ResiudeFree runs.
 JOURNAL_STORAGE=$(/bin/grep 'Storage' /etc/systemd/journald.conf)
@@ -480,10 +494,15 @@ done
 ## Bind mount necessary sockets to enable writes to OS
  /bin/mount --rbind /tmp/.X11-unix/ /mnt/ntmp/.X11-unix/
  /bin/mount --rbind /tmp/.ICE-unix/ /mnt/ntmp/.ICE-unix/
- /bin/mount --rbind /run/lock /mnt/nrun/lock
- /bin/mount --rbind /run/dbus /mnt/nrun/dbus
- /bin/mount --rbind /run/user/$SUDO_UID /mnt/nrun/user/$SUDO_UID
- /bin/chown -R $SUDO_UID:$SUDO_GID /mnt/nrun/user/$SUDO_UID 2>/dev/null
+# /bin/mount --rbind /run/lock /mnt/nrun/lock
+# /bin/mount --rbind /run/dbus /mnt/nrun/dbus
+# /bin/mount --rbind /run/dbus/system_bus_socket /mnt/nrun/dbus/system_bus_socket
+# /bin/mount --rbind /run/user/$SUDO_UID/at-spi/bus /mnt/nrun/user/$SUDO_UID/at-spi/bus
+# /bin/mount --rbind /run/user/$SUDO_UID /mnt/nrun/user/$SUDO_UID
+# /bin/mount --rbind /run/user/$SUDO_UID/bus /mnt/nrun/user/$SUDO_UID/bus
+# /bin/mount --rbind /run/snapd.socket /mnt/nrun/snapd.socket
+# /bin/mount --rbind /run/snapd-snap.socket /mnt/nrun/snapd-snap.socket
+# /bin/chown -R $SUDO_UID:$SUDO_GID /mnt/nrun/user/$SUDO_UID 2>/dev/null
  /bin/chown -R $SUDO_UID:$SUDO_GID /mnt/nhome/$SUDO_USER/.cache/dconf
 
  
@@ -520,8 +539,8 @@ else
 fi
 
 #Kill user daemons that write to files (keyring and pulseaudio)
-/bin/su -c "/usr/bin/pulseaudio --kill" $SUDO_USER
-/bin/kill -9 $KEYRING_PID 2>/dev/null
+#/bin/su -c "/usr/bin/pulseaudio --kill" $SUDO_USER
+#/bin/kill -9 $KEYRING_PID 2>/dev/null
 
 #Disable writes to gnome's file for tracking application usage
 /bin/su -c "/usr/bin/gsettings set org.gnome.desktop.privacy remember-app-usage false" $SUDO_USER
@@ -533,9 +552,10 @@ fi
 ### PREPARE DOCKER CONTAINER ###
 
 #Setup three shell scripts that will run to initialize residue free
-ENVFILE=/tmp/user_env.sh
+ENVFILE=/mnt/ntmp/user_env.sh
 DFILE=/mnt/ntmp/user_daemons.sh #Stored in tmpfs to ensure deletion
 CMDFILE=/mnt/ntmp/user_command.sh #Stored in tmpfs to ensure deletion
+SETUPFILE=/mnt/nroot/setup_commands.sh #Stored in tmpfs to ensure deletion
 
 #Copy user's environment variables into a script that will import them to residue free
 /usr/bin/sudo -u $SUDO_USER /usr/bin/printenv > $ENVFILE
@@ -545,7 +565,7 @@ CMDFILE=/mnt/ntmp/user_command.sh #Stored in tmpfs to ensure deletion
 /bin/sed -i '/LESSCLOSE=/{s/LESS/"LESS/;s/$/"/;}' $ENVFILE
 /bin/sed -i '/export PATH=/d' $ENVFILE
 /bin/echo "export $(grep 'PATH=' /etc/environment)" >> $ENVFILE
-/bin/echo "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$SUDO_UID/bus" >> $ENVFILE
+#/bin/echo "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$SUDO_UID/bus" >> $ENVFILE
 
 /bin/echo "/bin/bash /tmp/user_daemons.sh" >> $ENVFILE
 /bin/sed -i '/-[fpozmsh]/d' $ENVFILE #Delete command line options added to the shell environment
@@ -554,14 +574,54 @@ CMDFILE=/mnt/ntmp/user_command.sh #Stored in tmpfs to ensure deletion
 #Launch user daemons inside residueFree
 /bin/echo "/usr/bin/gnome-keyring-daemon --daemonize --login >/dev/null 2>&1 &" >> $DFILE
 /bin/echo "/usr/bin/gnome-keyring-daemon --start --foreground --components=secrets >/dev/null 2>&1 &" >> $DFILE
-/bin/echo "/usr/bin/pulseaudio --start --log-target=null" >> $DFILE
+#/bin/echo "/usr/bin/pulseaudio --start --log-target=null" >> $DFILE
 /bin/echo "/bin/bash /tmp/user_command.sh" >> $DFILE
 
 #Launch user's command. Can't put at end of DFILE for processes started via GUI option
 /bin/echo "#!/bin/bash" >> $CMDFILE
 /bin/echo "$CMD" >> $CMDFILE
 
+#Commands to run as root once continer is launched and stable
+# /bin/echo "snap install core --edge" >> $SETUPFILE
+# /bin/echo "systemctl start snapd" >> $SETUPFILE
+
+/bin/echo "/bin/mount -t securityfs securityfs /sys/kernel/security" >> $SETUPFILE #Trick snap into thinking AppArmor installed
+#/bin/echo "mount -a" >> $SETUPFILE
+
+/bin/echo "chown $SUDO_USER:$SUDO_USER /run/user/$SUDO_UID/" >> $SETUPFILE
+
+/bin/echo "/usr/bin/sudo -u $SUDO_USER /bin/bash /tmp/user_env.sh" >> $SETUPFILE
+#/bin/echo "sleep 4 && systemctl status snapd" >> $SETUPFILE
+#/bin/echo "/bin/bash" >> $SETUPFILE
+
 ### END CONTAINER PREP
+
+
+# find /mnt/netc/systemd/system/ -not -iname "snap*" -exec rm -f {} \; 2>/dev/null
+
+#/home/user/ResidueFree/snapd-docker/run-residue.sh acpi
+
+#dirs=$(find /etc/ -maxdepth 1 -not -type d | cut -d '/' -f 3 2>/dev/null)
+#for d in $dirs; do 
+#	echo $d
+#	/home/user/ResidueFree/snapd-docker/run-residue.sh $d
+#	podman rm -f residue
+#	echo ''
+#	echo ''
+#done
+
+#rm -f /mnt/netc/fstab
+
+#echo "# UNCONFIGURED FSTAB FOR BASE SYSTEM" > /mnt/netc/fstab
+#echo "UUID=5ef49843-57bc-4760-8237-c81f47533419 /snap/               ext4    defaults" >> /mnt/netc/fstab
+
+#sed -i '1,11!d' /mnt/netc/fstab #Keeping 1-11 has same behavior as keeping fstab. Removing 10 and 11 (i.e. boot) lets snapd run, but causes errors with libre.
+#sed -i 's/\/boot\/efi/\/tmp/' /mnt/netc/fstab #Using has same behavior as normal
+
+rm -rf /mnt/netc/acpi/
+
+
+find /mnt/netc/systemd/ -iname "*.service" -not -iname "snap*" -exec rm -f {} \;
 
 
 ### RUN RESIDUEFREE ###
@@ -573,30 +633,57 @@ CLEANUP_PID=$!
 #Run residue free docker container.
 # (Currently does not include /proc and /mnt; full mount of /dev)
 # TODO: This was not written by experienced Docker engineers, room for this to be cleaned up.
-/usr/bin/docker run -it --name residue --rm --log-driver=none \
-	--mount type=bind,source=/mnt/nbin,target=/bin \
-	--mount type=bind,source=/mnt/nboot,target=/boot \
-	--mount type=bind,source=/mnt/ncdrom,target=/cdrom \
-	--mount type=bind,source=/mnt/netc,target=/etc \
+ /usr/bin/podman run -it -d --name=residue --rm --log-driver=none \
+	--mount type=bind,source=/mnt/nbin/,target=/bin \
 	--mount type=bind,source=/dev,target=/dev \
-	--mount type=bind,source=/mnt/nhome,target=/home \
-	--mount type=bind,source=/mnt/nlib,target=/lib \
-	--mount type=bind,source=/mnt/nlib64,target=/lib64 \
-	--mount type=bind,source=/mnt/nlost+found,target=/lost+found \
-	--mount type=bind,source=/mnt/nmedia,target=/media \
-	--mount type=bind,source=/mnt/nopt,target=/opt \
-	--mount type=bind,source=/mnt/nroot,target=/root \
-	--mount type=bind,source=/mnt/nrun,target=/run \
-	--mount type=bind,source=/mnt/nsbin,target=/sbin \
-	--mount type=bind,source=/mnt/nsrv,target=/srv \
-	--mount type=bind,source=/mnt/nsys,target=/sys \
-	--mount type=bind,source=/mnt/ntmp,target=/tmp \
+	--mount type=bind,source=/mnt/nsbin/,target=/sbin \
+	--mount type=bind,source=/mnt/nsnap,target=/snap \
 	--mount type=bind,source=/mnt/nusr,target=/usr \
+	--mount type=bind,source=/mnt/nlib,target=/lib \
+	--mount type=bind,source=/mnt/nroot,target=/root \
+	--mount type=bind,source=/mnt/nhome,target=/home \
+	--mount type=bind,source=/mnt/nopt,target=/opt \
+        --mount type=bind,source=/mnt/nsrv,target=/srv \
+	--mount type=bind,source=/mnt/nlib64,target=/lib64 \
+        --mount type=bind,source=/mnt/nlost+found,target=/lost+found \
+        --mount type=bind,source=/mnt/nmedia,target=/media \
 	--mount type=bind,source=/mnt/nvar,target=/var \
+	--mount type=bind,source=/mnt/ntmp,target=/tmp \
+	--mount type=bind,source=/mnt/nsys,target=/sys \
+	--mount type=bind,source=/mnt/netc,target=/etc \
+	--tmpfs /boot/efi \
+	--mount type=bind,source=/run/user/1000/pulse/native,target=/run/user/1000/pulse/native \
 	--privileged \
 	--net=host \
-	ubuntu:18.04 /usr/bin/sudo -u $SUDO_USER /bin/bash $ENVFILE
+	ubuntu:22.04 /sbin/init #/usr/bin/sudo -u $SUDO_USER /bin/bash $ENVFILE
 	#--sysctl net.ipv6.conf.all.disable_ipv6=0 \ # include in options to enable openVPN. Not working with Docker update.
+
+
+	#--tmpfs /boot/efi \
+	#--mount type=bind,source=/mnt/nboot,target=/boot \
+	
+	#--mount type=bind,source=/mnt/netc,target=/etc \
+	# y11y
+	#--mount type=bind,source=/mnt/netc/systemd/system,target=/etc/systemd/system \
+	#--mount type=bind,source=/mnt/netc/systemd/user,target=/etc/systemd/user \
+	#--mount type=bind,source=/mnt/netc/pulse,target=/etc/pulse \
+	#--mount type=bind,source=/mnt/netc/sudo.conf,target=/etc/sudo.conf \
+	#--mount type=bind,source=/mnt/netc/sudoers,target=/etc/sudoers \
+	#--mount type=bind,source=/mnt/netc/nsswitch.conf,target=/etc/nsswitch.conf \
+	#--mount type=bind,source=/mnt/netc/ld.so.cache,target=/etc/ld.so.cache \
+	#--mount type=bind,source=/mnt/netc/passwd,target=/etc/passwd \
+	#--mount type=bind,source=/mnt/netc/gtk-3.0,target=/etc/gtk-3.0 \
+	#--mount type=bind,source=/mnt/netc/xdg,target=/etc/xdg \
+	#--mount type=bind,source=/mnt/netc/libreoffice,target=/etc/libreoffice \
+	
+
+	#--mount type=bind,source=/mnt/nrun,target=/run \
+	#--mount type=bind,source=/mnt/nrun/user/$SUDO_UID,target=/run/user/$SUDO_UID \
+	#--mount type=bind,source=/mnt/nrun/dbus,target=/run/dbus \
+	#--mount type=bind,source=/mnt/nrun/user/$SUDO_UID/bus,target=/run/user/$SUDO_UID/bus \
+	#--mount type=bind,source=/mnt/nrun/lock,target=/run/lock \
+
+/usr/bin/podman exec -it residue /bin/bash /root/setup_commands.sh
 
 # Run cleanup and exit
 cleanup
