@@ -32,7 +32,7 @@ Folder contains an old version of ResidueFree and older files used to test poten
 This branch contains all scripts used to evaluate ResidueFree's forensic and performance impacts, as well as all performance data presented in the paper. More detailed information is available in the branch's README file.
 
 ## Presentation
-The [slide deck from DEFCON 30 Demo Labs](https://github.com/LArkema/residuefree/blob/main/DEFCON_ResidueFree.pptx) is available at [https://github.com/LArkema/residuefree/blob/main/DEFCON_ResidueFree.pptx]
+The [slide deck from DEFCON 30 Demo Labs](https://github.com/LArkema/residuefree/blob/main/DEFCON_ResidueFree.pptx) is available at https://github.com/LArkema/residuefree/blob/main/DEFCON_ResidueFree.pptx
 
 You can view [Residue-Free Computing presentation](https://www.youtube.com/watch?v=2TEMAeaxm44&list=PLWSQygNuIsPdfA8TBXlw647oHIJY21RFj&index=43) we presented at PETS, as well as the [presentation with captions](https://georgetown.box.com/s/02c9c3gtgmz8fnzkvdokio5af4b7fz1u) (though the first link's YouTube auto-captions may be better). We have also uploaded our [PETS poster](https://georgetown.box.com/s/uzfwj0wzkbg62u3dekgtlu8df2z68fbh).
 
